@@ -7,7 +7,7 @@ on:
       - tmp-egx-defensive-lift-v517-h1-20260904
     paths:
       - '.github/workflows/tmp-egx-v517-h1-audit.yml'
-      - 'tmp/egx_backtest/audit_v517_h1_lastweek.py'
+      - 'tmp/egx_backtest/audit_v517_h1_lastweek_v2.py'
 
 permissions:
   contents: write
@@ -27,7 +27,7 @@ jobs:
       - run: |
           rm -rf egxdata
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
-      - run: python3 tmp/egx_backtest/audit_v517_h1_lastweek.py
+      - run: python3 tmp/egx_backtest/audit_v517_h1_lastweek_v2.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
