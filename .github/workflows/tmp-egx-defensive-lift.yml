@@ -31,18 +31,18 @@ jobs:
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
           echo "CSV files: $(find egxdata/Dataset/raw -name '*.csv' | wc -l)"
 
-      - name: Run Defensive Lift v3.5 profit preservation research
-        run: python3 tmp/egx_backtest/backtest_v35_profit_preservation.py
+      - name: Run EGX v4 multi-engine portfolio research
+        run: python3 tmp/egx_backtest/backtest_v40_multiengine.py
 
-      - name: Commit v3.5 result
+      - name: Commit v4 result
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-20260904
-          git add tmp/egx_backtest/results_v35_profit_preservation.json
+          git add tmp/egx_backtest/results_v40_multiengine.json
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Defensive Lift v3.5 profit preservation research result"
+            git commit -m "EGX v4 multi-engine portfolio research result"
             git push origin HEAD:tmp-egx-defensive-lift-20260904
           fi
