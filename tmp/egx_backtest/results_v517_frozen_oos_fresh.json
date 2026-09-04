@@ -1,0 +1,328 @@
+{
+  "version": "v5.17-FROZEN-OOS-1",
+  "frozen_model": {
+    "commit": "236519236da35fa19dfd4dc02b1cd332f8c4b0c9",
+    "branch": "frozen-egx-defensive-lift-v517-20260904",
+    "atoms": [
+      [
+        {
+          "f": "rs20",
+          "side": "high",
+          "thr": 0.07340059829329726,
+          "q": 0.75
+        },
+        {
+          "f": "market5_ret",
+          "side": "high",
+          "thr": 0.008543451793102896,
+          "q": 0.7
+        }
+      ],
+      [
+        {
+          "f": "lift",
+          "side": "high",
+          "thr": 0.05965902346208485,
+          "q": 0.75
+        },
+        {
+          "f": "gap",
+          "side": "low",
+          "thr": -3.413044438183023e-08,
+          "q": 0.15
+        }
+      ],
+      [
+        {
+          "f": "lift",
+          "side": "low",
+          "thr": 0.04764147846387261,
+          "q": 0.3
+        },
+        {
+          "f": "compression_ratio",
+          "side": "high",
+          "thr": 1.139118181416062,
+          "q": 0.85
+        }
+      ]
+    ],
+    "rule": "reject accepted v3.2 trade if ANY atom matches; no replacement trade is admitted"
+  },
+  "protocol": {
+    "old_research_data_max": "2026-02-04",
+    "oos_start": "2026-02-05",
+    "data_warmup_start": "2025-09-01",
+    "download_end_exclusive": "2026-09-05",
+    "source": "Yahoo Finance via yfinance, .CA tickers, auto_adjust=True",
+    "selection_or_tuning_on_oos": false,
+    "same_bar_policy": "unchanged from frozen v3.2 signal outcome builder: stop-first",
+    "round_trip_friction_sensitivity": 0.005,
+    "decision_rule": "Compare frozen v5.17 with v3.2 on exactly the same fresh accepted-trade set. Strict pass requires higher return AND lower absolute max drawdown."
+  },
+  "data_quality": {
+    "reference_symbol_count": 198,
+    "downloaded_usable_symbols": 181,
+    "coverage_ratio": 0.9141414141414141,
+    "recent_7_calendar_day_coverage": 180,
+    "earliest_fresh_date": "2025-09-01",
+    "latest_fresh_date": "2026-09-02",
+    "failed_or_insufficient_count": 17,
+    "failed_or_insufficient": [
+      {
+        "symbol": "ACRO",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "ADRI",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "AIH",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "ANFI",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "ARVA",
+        "rows": 34,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "EGBE",
+        "rows": 37,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "EIUD",
+        "rows": 35,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "EKHO",
+        "rows": 35,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "ESRS",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "GETO",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "GOCO",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "GTWL",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "ICMI",
+        "rows": 35,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "IEEC",
+        "rows": 8,
+        "last_date": "2026-09-02"
+      },
+      {
+        "symbol": "SIMO",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "SUCE",
+        "rows": 0,
+        "last_date": null
+      },
+      {
+        "symbol": "UASG",
+        "rows": 0,
+        "last_date": null
+      }
+    ],
+    "batches": [
+      {
+        "symbols": 35,
+        "error": null
+      },
+      {
+        "symbols": 35,
+        "error": null
+      },
+      {
+        "symbols": 35,
+        "error": null
+      },
+      {
+        "symbols": 35,
+        "error": null
+      },
+      {
+        "symbols": 35,
+        "error": null
+      },
+      {
+        "symbols": 23,
+        "error": null
+      }
+    ]
+  },
+  "sample": {
+    "status": "ADEQUATE_PRELIMINARY",
+    "closed_accepted_trades": 19,
+    "accepted_outcomes": {
+      "n": 19,
+      "targets": 7,
+      "stops": 8,
+      "timeouts": 4
+    },
+    "latest_closed_entry_date": "2026-07-22",
+    "signals_built_total_with_warmup": 38
+  },
+  "v32_baseline": {
+    "return": 0.1975407024486049,
+    "dd": -0.14072196418143312,
+    "final_equity": 119754.07024486049,
+    "dd_peak": "2026-05-13",
+    "dd_trough": "2026-07-22",
+    "trades": 19,
+    "flagged_trades": 0,
+    "weekly": {
+      "weeks": 31,
+      "avg": 0.006659016733940397,
+      "active_weeks": 17,
+      "active_avg": 0.014358182234284096,
+      "active_ge_2_rate": 0.4117647058823529,
+      "weekend_ge_2_rate": 0.22580645161290322,
+      "hit_2_anytime_rate": 0.22580645161290322,
+      "worst": -0.07646174148447349,
+      "best": 0.14744005631920687
+    }
+  },
+  "v517_frozen": {
+    "return": 0.2314984772427109,
+    "dd": -0.08242618496237553,
+    "final_equity": 123149.84772427108,
+    "dd_peak": "2026-05-13",
+    "dd_trough": "2026-07-22",
+    "trades": 19,
+    "flagged_trades": 0,
+    "weekly": {
+      "weeks": 31,
+      "avg": 0.0072012370981618225,
+      "active_weeks": 15,
+      "active_avg": 0.017269466079036476,
+      "active_ge_2_rate": 0.3333333333333333,
+      "weekend_ge_2_rate": 0.16129032258064516,
+      "hit_2_anytime_rate": 0.16129032258064516,
+      "worst": -0.03789962031271166,
+      "best": 0.11530235598107264
+    }
+  },
+  "gate_oos_profile": {
+    "n": 7,
+    "targets": 1,
+    "stops": 3,
+    "timeouts": 3,
+    "trades": [
+      {
+        "symbol": "AMOC",
+        "entry_date": "2026-02-17",
+        "exit_date": "2026-02-25",
+        "exit_type": "stop",
+        "gross_return": -0.045,
+        "matched_atoms": [
+          3
+        ]
+      },
+      {
+        "symbol": "MENA",
+        "entry_date": "2026-04-14",
+        "exit_date": "2026-04-23",
+        "exit_type": "timeout",
+        "gross_return": 0.026455042918707594,
+        "matched_atoms": [
+          1
+        ]
+      },
+      {
+        "symbol": "ALUM",
+        "entry_date": "2026-05-03",
+        "exit_date": "2026-05-06",
+        "exit_type": "target",
+        "gross_return": 0.12,
+        "matched_atoms": [
+          3
+        ]
+      },
+      {
+        "symbol": "ZMID",
+        "entry_date": "2026-05-13",
+        "exit_date": "2026-05-20",
+        "exit_type": "stop",
+        "gross_return": -0.045,
+        "matched_atoms": [
+          1
+        ]
+      },
+      {
+        "symbol": "ELKA",
+        "entry_date": "2026-06-02",
+        "exit_date": "2026-06-11",
+        "exit_type": "timeout",
+        "gross_return": -0.016129016752173708,
+        "matched_atoms": [
+          1
+        ]
+      },
+      {
+        "symbol": "UEFM",
+        "entry_date": "2026-06-24",
+        "exit_date": "2026-06-28",
+        "exit_type": "stop",
+        "gross_return": -0.045,
+        "matched_atoms": [
+          3
+        ]
+      },
+      {
+        "symbol": "MIPH",
+        "entry_date": "2026-07-15",
+        "exit_date": "2026-07-27",
+        "exit_type": "timeout",
+        "gross_return": 0.0016353296989597421,
+        "matched_atoms": [
+          1
+        ]
+      }
+    ]
+  },
+  "comparison": {
+    "return_edge_percentage_points": 3.3957774794106,
+    "dd_improvement_percentage_points": 5.829577921905759,
+    "strict_better_than_v32": true,
+    "no_worse_than_v32": true,
+    "evidence_status": "PASS_STRICT_VS_V32"
+  },
+  "interpretation_guardrails": [
+    "No v5.17 threshold, atom, target, stop, horizon, slot count, sizing rule or friction assumption was changed after seeing OOS data.",
+    "The fresh period begins after the old dataset maximum date, so these prices were not used to design v5.17.",
+    "This is one OOS window, not a guarantee of future performance; sample size and number of gate triggers must be considered.",
+    "Yahoo adjusted history is freshly downloaded from 2025-09-01 to avoid stitching old and newly adjusted price series."
+  ]
+}
