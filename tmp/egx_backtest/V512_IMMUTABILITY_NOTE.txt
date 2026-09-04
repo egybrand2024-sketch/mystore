@@ -1,0 +1,1 @@
+Temporary note: an accidental placeholder file was added after v5.12 was frozen. It will be removed immediately; v5.12 result/script/documentation remain unchanged.
