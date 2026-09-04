@@ -1,0 +1,1862 @@
+{
+  "version": "v5.11A",
+  "name": "Tight Early Stop Hazard Protection",
+  "family": "A",
+  "status": "Rejected / no strict validation dominance",
+  "thresholds": {
+    "clearance_q75": 0.03260246271034045,
+    "lift_q75": 0.059491469466607605,
+    "clearance_q85": 0.04453108664408428,
+    "lift_q85": 0.06223321375917046,
+    "clearance_q90": 0.04586781807511964,
+    "lift_q90": 0.06613275548043607,
+    "market20_q25": -0.002637913831371963,
+    "breadth_q25": 0.27089874411302983
+  },
+  "strict_definition": "Candidate must have higher return AND lower absolute max drawdown than v5.10C in both 2023 and 2024, while preserving active-week >=2% rate. Only the top validation-passing configuration may open final. Final must then beat v3.2 on return and drawdown while preserving active-week >=2% rate.",
+  "v510c_validation_reference": {
+    "2023": {
+      "return": 0.4003763476700404,
+      "dd": -0.05781411126020031,
+      "active_ge2": 0.38461538461538464
+    },
+    "2024": {
+      "return": 0.48000687652845,
+      "dd": -0.1046462370726311,
+      "active_ge2": 0.38461538461538464
+    }
+  },
+  "v32_final_reference": {
+    "return": 0.710060075535486,
+    "dd": -0.06909077753849246,
+    "active_ge2": 0.37209302325581395
+  },
+  "dataset": {
+    "stocks": 198,
+    "signals": 170
+  },
+  "hazard_profiles": {
+    "2023": {
+      "n": 4,
+      "share": 0.13793103448275862,
+      "targets": 2,
+      "stops": 2,
+      "fast_stops": 2
+    },
+    "2024": {
+      "n": 4,
+      "share": 0.12903225806451613,
+      "targets": 1,
+      "stops": 3,
+      "fast_stops": 2
+    },
+    "final_research_period": {
+      "n": 2,
+      "share": 0.03225806451612903,
+      "targets": 1,
+      "stops": 1,
+      "fast_stops": 0
+    }
+  },
+  "baseline_v32": {
+    "2023": {
+      "trades": 20,
+      "skipped": 9,
+      "skip_reasons": {
+        "max_positions": 9
+      },
+      "final_equity": 138783.53314746817,
+      "total_return": 0.38783533147468163,
+      "cagr": 0.39065755495501797,
+      "max_drawdown": -0.06497255722349737,
+      "dd_peak": "2023-08-03",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.03421703898505833,
+      "positive_trade_rate": 0.65,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.00637302568278135,
+        "active_weeks": 26,
+        "active_avg": 0.013118870274779683,
+        "active_ge_2_rate": 0.38461538461538464,
+        "weekend_ge_2_rate": 0.18867924528301888,
+        "hit_2_anytime_rate": 0.22641509433962265,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486604
+      },
+      "avg_exposure": 0.21935713848714522,
+      "hazard_runtime": {
+        "hazard_entries": 0,
+        "protected_entries": 0,
+        "confirmed": 0,
+        "unconfirmed": 0,
+        "stop_before_confirmation": 0,
+        "target_before_confirmation": 0
+      }
+    },
+    "2024": {
+      "trades": 27,
+      "skipped": 4,
+      "skip_reasons": {
+        "max_positions": 4
+      },
+      "final_equity": 146219.46177890824,
+      "total_return": 0.46219461778908233,
+      "cagr": 0.46410363757634143,
+      "max_drawdown": -0.1116567654875591,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.029776524488004302,
+      "positive_trade_rate": 0.5555555555555556,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.007683180459856233,
+        "active_weeks": 26,
+        "active_avg": 0.015055175945336055,
+        "active_ge_2_rate": 0.38461538461538464,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.23076923076923078,
+        "worst": -0.034202640363496295,
+        "best": 0.10630703266282127
+      },
+      "avg_exposure": 0.2510502763183125,
+      "hazard_runtime": {
+        "hazard_entries": 0,
+        "protected_entries": 0,
+        "confirmed": 0,
+        "unconfirmed": 0,
+        "stop_before_confirmation": 0,
+        "target_before_confirmation": 0
+      }
+    },
+    "final_research_period": {
+      "trades": 42,
+      "skipped": 20,
+      "skip_reasons": {
+        "max_positions": 20
+      },
+      "final_equity": 171006.0075535486,
+      "total_return": 0.710060075535486,
+      "cagr": 0.6362049176510769,
+      "max_drawdown": -0.06909077753849246,
+      "dd_peak": "2025-05-05",
+      "dd_trough": "2025-06-30",
+      "avg_trade_return": 0.027083770319975935,
+      "positive_trade_rate": 0.5238095238095238,
+      "weekly": {
+        "weeks": 58,
+        "avg": 0.009755053791487818,
+        "active_weeks": 43,
+        "active_avg": 0.013612096273069389,
+        "active_ge_2_rate": 0.37209302325581395,
+        "weekend_ge_2_rate": 0.27586206896551724,
+        "hit_2_anytime_rate": 0.3275862068965517,
+        "worst": -0.04557030000308515,
+        "best": 0.10238833292864058
+      },
+      "avg_exposure": 0.42349475432538475,
+      "hazard_runtime": {
+        "hazard_entries": 0,
+        "protected_entries": 0,
+        "confirmed": 0,
+        "unconfirmed": 0,
+        "stop_before_confirmation": 0,
+        "target_before_confirmation": 0
+      }
+    }
+  },
+  "grid": {
+    "tested": 40,
+    "strict_validation_pass": 0
+  },
+  "best": {
+    "config": {
+      "early_stop": 0.025,
+      "stop_days": 1,
+      "relax_mfe": 0.01
+    },
+    "2023": {
+      "trades": 20,
+      "skipped": 9,
+      "skip_reasons": {
+        "max_positions": 9
+      },
+      "final_equity": 141630.27328482538,
+      "total_return": 0.4163027328482538,
+      "cagr": 0.41936146801685537,
+      "max_drawdown": -0.05543155244619691,
+      "dd_peak": "2023-08-03",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.03620705148505833,
+      "positive_trade_rate": 0.65,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.006760605001770764,
+        "active_weeks": 26,
+        "active_avg": 0.013908935809642718,
+        "active_ge_2_rate": 0.4230769230769231,
+        "weekend_ge_2_rate": 0.20754716981132076,
+        "hit_2_anytime_rate": 0.22641509433962265,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486604
+      },
+      "avg_exposure": 0.21935713848714525,
+      "runtime": {
+        "stop": 2,
+        "hazard_entries": 3,
+        "early_stop": 2,
+        "severe_entries": 2
+      }
+    },
+    "2024": {
+      "trades": 27,
+      "skipped": 4,
+      "skip_reasons": {
+        "max_positions": 4
+      },
+      "final_equity": 149273.2151398778,
+      "total_return": 0.49273215139877813,
+      "cagr": 0.4947871380678337,
+      "max_drawdown": -0.11165676548755898,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.03125060782133764,
+      "positive_trade_rate": 0.5555555555555556,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.008087138413653782,
+        "active_weeks": 26,
+        "active_avg": 0.01585742780824951,
+        "active_ge_2_rate": 0.38461538461538464,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.23076923076923078,
+        "worst": -0.034202640363496406,
+        "best": 0.10630703266282127
+      },
+      "avg_exposure": 0.24903283650818744,
+      "runtime": {
+        "hazard_entries": 4,
+        "severe_entries": 2,
+        "early_stop": 2,
+        "stop": 7
+      }
+    },
+    "strict_validation_better_than_v510c": false,
+    "return_edge_2023_pp": 1.5926385178213431,
+    "return_edge_2024_pp": 1.2725274870328152,
+    "dd_improvement_2023_pp": 0.23825588140033993,
+    "dd_improvement_2024_pp": -0.7010528414927886,
+    "min_return_edge_pp": 1.2725274870328152,
+    "min_dd_improvement_pp": -0.7010528414927886
+  },
+  "final_result": null,
+  "final_score": null,
+  "top20": [
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 1,
+        "relax_mfe": 0.01
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 1,
+        "relax_mfe": 0.015
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 1,
+        "relax_mfe": 0.02
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 1,
+        "relax_mfe": 0.025
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 1,
+        "relax_mfe": null
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 2,
+        "relax_mfe": 0.01
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 2,
+        "relax_mfe": 0.015
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 2,
+        "relax_mfe": 0.02
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 2,
+        "relax_mfe": 0.025
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.025,
+        "stop_days": 2,
+        "relax_mfe": null
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 141630.27328482538,
+        "total_return": 0.4163027328482538,
+        "cagr": 0.41936146801685537,
+        "max_drawdown": -0.05543155244619691,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03620705148505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006760605001770764,
+          "active_weeks": 26,
+          "active_avg": 0.013908935809642718,
+          "active_ge_2_rate": 0.4230769230769231,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714525,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 149273.2151398778,
+        "total_return": 0.49273215139877813,
+        "cagr": 0.4947871380678337,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03125060782133764,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008087138413653782,
+          "active_weeks": 26,
+          "active_avg": 0.01585742780824951,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283650818744,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 1.5926385178213431,
+      "return_edge_2024_pp": 1.2725274870328152,
+      "dd_improvement_2023_pp": 0.23825588140033993,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 1.2725274870328152,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 1,
+        "relax_mfe": 0.01
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 1,
+        "relax_mfe": 0.015
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 1,
+        "relax_mfe": 0.02
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 1,
+        "relax_mfe": 0.025
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 1,
+        "relax_mfe": null
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 2,
+        "relax_mfe": 0.01
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 2,
+        "relax_mfe": 0.015
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 2,
+        "relax_mfe": 0.02
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 2,
+        "relax_mfe": 0.025
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    },
+    {
+      "config": {
+        "early_stop": 0.03,
+        "stop_days": 2,
+        "relax_mfe": null
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 140915.87881556942,
+        "total_return": 0.4091587881556942,
+        "cagr": 0.4121578313394938,
+        "max_drawdown": -0.05781680364052222,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035709548360058296,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006663710172023408,
+          "active_weeks": 26,
+          "active_avg": 0.013711419425926954,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21935713848714522,
+        "runtime": {
+          "stop": 2,
+          "hazard_entries": 3,
+          "early_stop": 2,
+          "severe_entries": 2
+        }
+      },
+      "2024": {
+        "trades": 27,
+        "skipped": 4,
+        "skip_reasons": {
+          "max_positions": 4
+        },
+        "final_equity": 148506.8190013037,
+        "total_return": 0.4850681900130369,
+        "cagr": 0.4870863392257261,
+        "max_drawdown": -0.11165676548755898,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.030882086988004317,
+        "positive_trade_rate": 0.5555555555555556,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007986154418568672,
+          "active_weeks": 26,
+          "active_avg": 0.015656864842521143,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.24903283553767283,
+        "runtime": {
+          "hazard_entries": 4,
+          "severe_entries": 2,
+          "early_stop": 2,
+          "stop": 7
+        }
+      },
+      "strict_validation_better_than_v510c": false,
+      "return_edge_2023_pp": 0.8782440485653797,
+      "return_edge_2024_pp": 0.5061313484586938,
+      "dd_improvement_2023_pp": -0.0002692380321911436,
+      "dd_improvement_2024_pp": -0.7010528414927886,
+      "min_return_edge_pp": 0.5061313484586938,
+      "min_dd_improvement_pp": -0.7010528414927886
+    }
+  ],
+  "notes": [
+    "v5.9C hazard detector is frozen from 2021-2022 quantiles.",
+    "All post-entry decisions use only information available by that session close; intraday stop/target is evaluated first, stop-first on same-bar ambiguity.",
+    "0.5% round-trip friction sensitivity is retained.",
+    "Final research period is not used to choose configurations."
+  ]
+}
