@@ -1,4 +1,4 @@
-name: Frozen EGX Defensive Lift v5.17 OOS Test
+name: Frozen EGX Defensive Lift v5.17 Shadow Scanner
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  backtest:
+  scanner:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -24,10 +24,10 @@ jobs:
       - run: |
           rm -rf egxdata
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
-      - run: python3 tmp/egx_backtest/test_v517_frozen_oos_fresh.py
+      - run: python3 tmp/egx_backtest/live_v517_shadow_scanner.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-v517-oos-20260904
-          git add tmp/egx_backtest/results_v517_frozen_oos_fresh.json
-          if git diff --cached --quiet; then echo "No result changes"; else git commit -m "Frozen v5.17 fresh OOS result" && git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904; fi
+          git add tmp/egx_backtest/live_v517_shadow_scan.json
+          if git diff --cached --quiet; then echo "No scan changes"; else git commit -m "Frozen v5.17 shadow scan" && git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904; fi
