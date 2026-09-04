@@ -3,8 +3,6 @@ name: Frozen EGX Defensive Lift v5.17 Shadow Scanner
 on:
   workflow_dispatch:
   schedule:
-    # EGX trading days: Sunday-Thursday. 14:30 UTC = 17:30 Cairo during UTC+3.
-    # The delay after market close gives Yahoo time to publish settled daily OHLC.
     - cron: '30 14 * * 0-4'
   push:
     branches:
@@ -13,6 +11,7 @@ on:
       - '.github/workflows/tmp-egx-defensive-lift.yml'
       - 'tmp/egx_backtest/live_v517_shadow_scanner.py'
       - 'tmp/egx_backtest/live_v517_execution_audit.py'
+      - 'tmp/egx_backtest/audit_v517_week_20260823_27.py'
 
 permissions:
   contents: write
@@ -44,14 +43,16 @@ jobs:
           cp tmp/egx_backtest/live_v517_shadow_scan.json "tmp/egx_backtest/live_v517_shadow_history/scan_${SCAN_DATE}.json"
       - name: Measure next-session execution gap
         run: python3 tmp/egx_backtest/live_v517_execution_audit.py
+      - name: Audit prior week opportunities
+        run: python3 tmp/egx_backtest/audit_v517_week_20260823_27.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-v517-oos-20260904
-          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json
+          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json tmp/egx_backtest/audit_v517_week_20260823_27.json
           if git diff --cached --quiet; then
             echo "No scan changes"
           else
-            git commit -m "Frozen v5.17 scheduled shadow scan and execution audit"
+            git commit -m "Frozen v5.17 shadow scan and prior-week audit"
             git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904
           fi
