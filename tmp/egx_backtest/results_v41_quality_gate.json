@@ -1,0 +1,127 @@
+{
+  "pattern": "EGX Multi-Engine Quality Gate v4.1",
+  "goal": "add only secondary setups that survive strict quality gates while keeping portfolio DD <=8% in both validation years",
+  "protocol": {
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_selection": true,
+    "min_validation_cagr": 0.3,
+    "max_validation_drawdown": 0.08,
+    "ranking": "weaker-year average weekly return then >=2% week rate then CAGR"
+  },
+  "standalone": {
+    "DLP": {
+      "2023": {
+        "signals": 32,
+        "positive": 19,
+        "positive_rate": 0.59375,
+        "targets": 9,
+        "stops": 9,
+        "avg_gross": 0.03333301743927267
+      },
+      "2024": {
+        "signals": 33,
+        "positive": 15,
+        "positive_rate": 0.45454545454545453,
+        "targets": 10,
+        "stops": 13,
+        "avg_gross": 0.021948900315441944
+      },
+      "final": {
+        "signals": 69,
+        "positive": 35,
+        "positive_rate": 0.5072463768115942,
+        "targets": 18,
+        "stops": 16,
+        "avg_gross": 0.025353370419535188
+      }
+    },
+    "BRT": {
+      "2023": {
+        "signals": 26,
+        "positive": 15,
+        "positive_rate": 0.5769230769230769,
+        "targets": 7,
+        "stops": 10,
+        "avg_gross": 0.021477461797110242
+      },
+      "2024": {
+        "signals": 23,
+        "positive": 7,
+        "positive_rate": 0.30434782608695654,
+        "targets": 6,
+        "stops": 10,
+        "avg_gross": 0.004607719839412021
+      },
+      "final": {
+        "signals": 68,
+        "positive": 25,
+        "positive_rate": 0.36764705882352944,
+        "targets": 11,
+        "stops": 33,
+        "avg_gross": -0.000149926697961172
+      }
+    },
+    "PBC": {
+      "2023": {
+        "signals": 74,
+        "positive": 29,
+        "positive_rate": 0.3918918918918919,
+        "targets": 26,
+        "stops": 43,
+        "avg_gross": 0.008797335216729141
+      },
+      "2024": {
+        "signals": 56,
+        "positive": 20,
+        "positive_rate": 0.35714285714285715,
+        "targets": 16,
+        "stops": 34,
+        "avg_gross": 0.0026076477417770463
+      },
+      "final": {
+        "signals": 61,
+        "positive": 19,
+        "positive_rate": 0.3114754098360656,
+        "targets": 12,
+        "stops": 37,
+        "avg_gross": -0.004038631884041986
+      }
+    }
+  },
+  "grid": {
+    "tested": 1152,
+    "eligible": 0,
+    "subsets": [
+      [
+        "DLP"
+      ],
+      [
+        "DLP",
+        "BRT"
+      ],
+      [
+        "DLP",
+        "PBC"
+      ],
+      [
+        "DLP",
+        "BRT",
+        "PBC"
+      ]
+    ]
+  },
+  "selected": null,
+  "final_result": null,
+  "top20": []
+}
