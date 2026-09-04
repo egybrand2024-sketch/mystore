@@ -31,18 +31,18 @@ jobs:
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
           echo "CSV files: $(find egxdata/Dataset/raw -name '*.csv' | wc -l)"
 
-      - name: Run Defensive Lift v4.2 regime adaptive research
-        run: python3 tmp/egx_backtest/backtest_v42_regime_adaptive.py
+      - name: Run Defensive Lift v4.3 weekly overlay research
+        run: python3 tmp/egx_backtest/backtest_v43_weekly_overlay.py
 
-      - name: Commit v4.2 result
+      - name: Commit v4.3 result
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-20260904
-          git add tmp/egx_backtest/results_v42_regime_adaptive.json
+          git add tmp/egx_backtest/results_v43_weekly_overlay.json
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Defensive Lift v4.2 regime adaptive research result"
+            git commit -m "Defensive Lift v4.3 weekly overlay research result"
             git push origin HEAD:tmp-egx-defensive-lift-20260904
           fi
