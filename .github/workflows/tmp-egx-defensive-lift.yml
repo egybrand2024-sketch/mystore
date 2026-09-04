@@ -3,7 +3,7 @@ name: Temporary EGX Defensive Lift Backtest
 on:
   push:
     branches:
-      - tmp-egx-defensive-lift-v516-20260904
+      - tmp-egx-defensive-lift-v517-20260904
   workflow_dispatch:
 
 permissions:
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: tmp-egx-defensive-lift-v516-20260904
+          ref: tmp-egx-defensive-lift-v517-20260904
           fetch-depth: 1
       - run: |
           python3 -m pip install --upgrade pip
@@ -24,10 +24,10 @@ jobs:
       - run: |
           rm -rf egxdata
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
-      - run: python3 tmp/egx_backtest/backtest_v516_frozen_surgical_reject.py
+      - run: python3 tmp/egx_backtest/backtest_v517_third_atom_dd_fix.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin tmp-egx-defensive-lift-v516-20260904
-          git add tmp/egx_backtest/results_v516_frozen_surgical_reject.json
-          if git diff --cached --quiet; then echo "No result changes"; else git commit -m "Defensive Lift v5.16 frozen surgical reject result" && git push origin HEAD:tmp-egx-defensive-lift-v516-20260904; fi
+          git pull --rebase origin tmp-egx-defensive-lift-v517-20260904
+          git add tmp/egx_backtest/results_v517_third_atom_dd_fix.json
+          if git diff --cached --quiet; then echo "No result changes"; else git commit -m "Defensive Lift v5.17 third-atom DD fix result" && git push origin HEAD:tmp-egx-defensive-lift-v517-20260904; fi
