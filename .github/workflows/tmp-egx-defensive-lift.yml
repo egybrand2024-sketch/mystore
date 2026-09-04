@@ -3,7 +3,7 @@ name: Temporary EGX Defensive Lift Backtest
 on:
   push:
     branches:
-      - tmp-egx-defensive-lift-v58-hazard-attribution-20260904
+      - tmp-egx-defensive-lift-v59c-20260904
   workflow_dispatch:
 
 permissions:
@@ -14,35 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout research branch
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          ref: tmp-egx-defensive-lift-v58-hazard-attribution-20260904
+          ref: tmp-egx-defensive-lift-v59c-20260904
           fetch-depth: 1
-
-      - name: Install research dependencies
-        run: |
+      - run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install numpy scikit-learn
-
-      - name: Fetch public EGX historical dataset
-        run: |
+      - run: |
           rm -rf egxdata
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
-          echo "CSV files: $(find egxdata/Dataset/raw -name '*.csv' | wc -l)"
-
-      - name: Run v5.8 hazard attribution diagnostic
-        run: python3 tmp/egx_backtest/analyze_v58_hazard_attribution.py
-
-      - name: Commit diagnostic result
-        run: |
+      - run: python3 tmp/egx_backtest/backtest_v59c_clearance_lift.py
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin tmp-egx-defensive-lift-v58-hazard-attribution-20260904
-          git add tmp/egx_backtest/results_v58_hazard_attribution.json
-          if git diff --cached --quiet; then
-            echo "No result changes"
-          else
-            git commit -m "v5.8 hazard attribution diagnostic result"
-            git push origin HEAD:tmp-egx-defensive-lift-v58-hazard-attribution-20260904
-          fi
+          git pull --rebase origin tmp-egx-defensive-lift-v59c-20260904
+          git add tmp/egx_backtest/results_v59c_clearance_lift.json
+          if git diff --cached --quiet; then echo "No result changes"; else git commit -m "Defensive Lift v5.9C result" && git push origin HEAD:tmp-egx-defensive-lift-v59c-20260904; fi
