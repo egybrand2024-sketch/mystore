@@ -1,0 +1,3301 @@
+{
+  "version": "v5.15",
+  "name": "Ensemble Surgical Gate",
+  "status": "NO STRICT CHAMPION",
+  "selection_warning": "Highly optimized historical ensemble across already-observed 2023-2026 outcomes. Thresholds are from 2021-2022 quantiles but atom and ensemble selection use later outcomes; this is not pristine out-of-sample evidence.",
+  "frontier": {
+    "2023": {
+      "ret": 0.4292181660960166,
+      "dd": -0.04308669143288557
+    },
+    "2024": {
+      "ret": 0.5068743074573163,
+      "dd": -0.08011330922812487
+    },
+    "final": {
+      "ret": 0.710060075535486,
+      "dd": -0.059472498119147454
+    }
+  },
+  "dataset": {
+    "stocks": 198,
+    "signals": 170,
+    "primitive_rules": 468,
+    "candidate_atoms": 24734,
+    "atoms_used_for_search": 36,
+    "ensembles": 1230,
+    "configs_tested": 11070
+  },
+  "strict_count": 0,
+  "champion": null,
+  "best_near_miss": {
+    "atoms": [
+      [
+        {
+          "f": "rs20",
+          "side": "high",
+          "thr": 0.07340059829329726,
+          "q": 0.75
+        },
+        {
+          "f": "market5_ret",
+          "side": "high",
+          "thr": 0.008543451793102896,
+          "q": 0.7
+        }
+      ],
+      [
+        {
+          "f": "lift",
+          "side": "high",
+          "thr": 0.05965902346208485,
+          "q": 0.75
+        },
+        {
+          "f": "gap",
+          "side": "low",
+          "thr": -3.413044438183023e-08,
+          "q": 0.15
+        }
+      ]
+    ],
+    "protected_frac": 0.05,
+    "flag_profile": {
+      "2023": {
+        "n": 2,
+        "stops": 2,
+        "targets": 0,
+        "timeouts": 0,
+        "symbols": [
+          "SMFR",
+          "EFID"
+        ],
+        "dates": [
+          "2023-01-30",
+          "2023-08-22"
+        ]
+      },
+      "2024": {
+        "n": 3,
+        "stops": 3,
+        "targets": 0,
+        "timeouts": 0,
+        "symbols": [
+          "UNIP",
+          "CIEB",
+          "ORWE"
+        ],
+        "dates": [
+          "2024-04-16",
+          "2024-08-15",
+          "2024-08-15"
+        ]
+      },
+      "final": {
+        "n": 2,
+        "stops": 2,
+        "targets": 0,
+        "timeouts": 0,
+        "symbols": [
+          "RAKT",
+          "SNFC"
+        ],
+        "dates": [
+          "2025-04-29",
+          "2025-08-11"
+        ]
+      }
+    },
+    "metrics": {
+      "2023": {
+        "return": 0.4523179277546181,
+        "dd": -0.043497219333606174,
+        "final_equity": 145231.7927754618,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "trades": 20,
+        "flagged_trades": 2,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.007245407264041452,
+          "active_weeks": 26,
+          "active_avg": 0.014897186575040659,
+          "active_ge_2_rate": 0.46153846153846156,
+          "weekend_ge_2_rate": 0.22641509433962265,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        }
+      },
+      "2024": {
+        "return": 0.564209431982843,
+        "dd": -0.06980637094125752,
+        "final_equity": 156420.9431982843,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "trades": 27,
+        "flagged_trades": 3,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.008988087372043957,
+          "active_weeks": 26,
+          "active_avg": 0.017664989769711505,
+          "active_ge_2_rate": 0.38461538461538464,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        }
+      },
+      "final": {
+        "return": 0.7870243063145754,
+        "dd": -0.06066363018319754,
+        "final_equity": 178702.43063145754,
+        "dd_peak": "2025-09-08",
+        "dd_trough": "2025-09-29",
+        "trades": 42,
+        "flagged_trades": 2,
+        "weekly": {
+          "weeks": 58,
+          "avg": 0.01047956383302475,
+          "active_weeks": 43,
+          "active_avg": 0.01458934237560758,
+          "active_ge_2_rate": 0.37209302325581395,
+          "weekend_ge_2_rate": 0.27586206896551724,
+          "hit_2_anytime_rate": 0.3275862068965517,
+          "worst": -0.044310241070709355,
+          "best": 0.08263669115121819
+        }
+      }
+    },
+    "edges": {
+      "2023": {
+        "return_edge_pp": 2.3099761658601503,
+        "dd_improvement_pp": -0.04105279007206031
+      },
+      "2024": {
+        "return_edge_pp": 5.733512452552669,
+        "dd_improvement_pp": 1.030693828686735
+      },
+      "final": {
+        "return_edge_pp": 7.696423077908943,
+        "dd_improvement_pp": -0.11911320640500822
+      }
+    },
+    "strict_beats_six_frontier": false
+  },
+  "top20": [
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7870243063145754,
+          "dd": -0.06066363018319754,
+          "final_equity": 178702.43063145754,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01047956383302475,
+            "active_weeks": 43,
+            "active_avg": 0.01458934237560758,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 7.696423077908943,
+          "dd_improvement_pp": -0.11911320640500822
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08735673440312125,
+            "q": 0.85
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 1,
+          "stops": 1,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT"
+          ],
+          "dates": [
+            "2025-04-29"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7491711673903658,
+          "dd": -0.06066363018319776,
+          "final_equity": 174917.11673903657,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 1,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.010093689260928634,
+            "active_weeks": 43,
+            "active_avg": 0.014068860394640725,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121841
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 3.911109185487982,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08735673440312125,
+            "q": 0.85
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 1,
+          "stops": 1,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT"
+          ],
+          "dates": [
+            "2025-04-29"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7491711673903658,
+          "dd": -0.06066363018319776,
+          "final_equity": 174917.11673903657,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 1,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.010093689260928634,
+            "active_weeks": 43,
+            "active_avg": 0.014068860394640725,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121841
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 3.911109185487982,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08735673440312125,
+            "q": 0.85
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 1,
+          "stops": 1,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT"
+          ],
+          "dates": [
+            "2025-04-29"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7491711673903658,
+          "dd": -0.06066363018319776,
+          "final_equity": 174917.11673903657,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 1,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.010093689260928634,
+            "active_weeks": 43,
+            "active_avg": 0.014068860394640725,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121841
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 3.911109185487982,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08735673440312125,
+            "q": 0.85
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.05,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 1,
+          "stops": 1,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT"
+          ],
+          "dates": [
+            "2025-04-29"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4523179277546181,
+          "dd": -0.043497219333606174,
+          "final_equity": 145231.7927754618,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007245407264041452,
+            "active_weeks": 26,
+            "active_avg": 0.014897186575040659,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486604
+          }
+        },
+        "2024": {
+          "return": 0.564209431982843,
+          "dd": -0.06980637094125752,
+          "final_equity": 156420.9431982843,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008988087372043957,
+            "active_weeks": 26,
+            "active_avg": 0.017664989769711505,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496406,
+            "best": 0.10630703266282149
+          }
+        },
+        "final": {
+          "return": 0.7491711673903658,
+          "dd": -0.06066363018319776,
+          "final_equity": 174917.11673903657,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 1,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.010093689260928634,
+            "active_weeks": 43,
+            "active_avg": 0.014068860394640725,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121841
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 2.3099761658601503,
+          "dd_improvement_pp": -0.04105279007206031
+        },
+        "2024": {
+          "return_edge_pp": 5.733512452552669,
+          "dd_improvement_pp": 1.030693828686735
+        },
+        "final": {
+          "return_edge_pp": 3.911109185487982,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.07340059829329726,
+            "q": 0.75
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008543451793102896,
+            "q": 0.7
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -3.413044438183023e-08,
+            "q": 0.15
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    },
+    {
+      "atoms": [
+        [
+          {
+            "f": "rs20",
+            "side": "high",
+            "thr": 0.08237020533656687,
+            "q": 0.8
+          },
+          {
+            "f": "market5_ret",
+            "side": "high",
+            "thr": 0.008663328649155755,
+            "q": 0.75
+          }
+        ],
+        [
+          {
+            "f": "lift",
+            "side": "high",
+            "thr": 0.05965902346208485,
+            "q": 0.75
+          },
+          {
+            "f": "gap",
+            "side": "low",
+            "thr": -9.450027294022325e-09,
+            "q": 0.2
+          }
+        ]
+      ],
+      "protected_frac": 0.1,
+      "flag_profile": {
+        "2023": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "SMFR",
+            "EFID"
+          ],
+          "dates": [
+            "2023-01-30",
+            "2023-08-22"
+          ]
+        },
+        "2024": {
+          "n": 3,
+          "stops": 3,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "UNIP",
+            "CIEB",
+            "ORWE"
+          ],
+          "dates": [
+            "2024-04-16",
+            "2024-08-15",
+            "2024-08-15"
+          ]
+        },
+        "final": {
+          "n": 2,
+          "stops": 2,
+          "targets": 0,
+          "timeouts": 0,
+          "symbols": [
+            "RAKT",
+            "SNFC"
+          ],
+          "dates": [
+            "2025-04-29",
+            "2025-08-11"
+          ]
+        }
+      },
+      "metrics": {
+        "2023": {
+          "return": 0.4450808888567266,
+          "dd": -0.04588336798803849,
+          "final_equity": 144508.08888567265,
+          "dd_peak": "2023-08-03",
+          "dd_trough": "2023-09-03",
+          "trades": 20,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 53,
+            "avg": 0.007148475977234779,
+            "active_weeks": 26,
+            "active_avg": 0.014699595875011663,
+            "active_ge_2_rate": 0.46153846153846156,
+            "weekend_ge_2_rate": 0.22641509433962265,
+            "hit_2_anytime_rate": 0.22641509433962265,
+            "worst": -0.02366409574468087,
+            "best": 0.05501141881486582
+          }
+        },
+        "2024": {
+          "return": 0.5526382327013213,
+          "dd": -0.07445233474862067,
+          "final_equity": 155263.82327013212,
+          "dd_peak": "2024-07-28",
+          "dd_trough": "2024-10-02",
+          "trades": 27,
+          "flagged_trades": 3,
+          "weekly": {
+            "weeks": 52,
+            "avg": 0.008842876592470978,
+            "active_weeks": 26,
+            "active_avg": 0.017374568210565544,
+            "active_ge_2_rate": 0.38461538461538464,
+            "weekend_ge_2_rate": 0.19230769230769232,
+            "hit_2_anytime_rate": 0.23076923076923078,
+            "worst": -0.034202640363496295,
+            "best": 0.10630703266282127
+          }
+        },
+        "final": {
+          "return": 0.7783891312342894,
+          "dd": -0.06066363018319776,
+          "final_equity": 177838.91312342894,
+          "dd_peak": "2025-09-08",
+          "dd_trough": "2025-09-29",
+          "trades": 42,
+          "flagged_trades": 2,
+          "weekly": {
+            "weeks": 58,
+            "avg": 0.01039766517706167,
+            "active_weeks": 43,
+            "active_avg": 0.014478874421052727,
+            "active_ge_2_rate": 0.37209302325581395,
+            "weekend_ge_2_rate": 0.27586206896551724,
+            "hit_2_anytime_rate": 0.3275862068965517,
+            "worst": -0.044310241070709355,
+            "best": 0.08263669115121819
+          }
+        }
+      },
+      "edges": {
+        "2023": {
+          "return_edge_pp": 1.586272276070999,
+          "dd_improvement_pp": -0.27966765551529216
+        },
+        "2024": {
+          "return_edge_pp": 4.576392524400497,
+          "dd_improvement_pp": 0.5660974479504199
+        },
+        "final": {
+          "return_edge_pp": 6.832905569880343,
+          "dd_improvement_pp": -0.11911320640503043
+        }
+      },
+      "strict_beats_six_frontier": false
+    }
+  ]
+}
