@@ -1,0 +1,66 @@
+{
+  "mode": "SHADOW_ONLY",
+  "frozen_commit": "236519236da35fa19dfd4dc02b1cd332f8c4b0c9",
+  "scan_date": "2026-09-02",
+  "generated_utc": "2026-09-04T12:54:09.010823+00:00",
+  "data": {
+    "reference_symbols": 198,
+    "usable_symbols": 181,
+    "coverage_ratio": 0.9141414141414141,
+    "modal_latest_date_count": 180,
+    "download_start": "2025-04-22",
+    "download_end_exclusive": "2026-09-05",
+    "failed_count": 17
+  },
+  "frozen_rules": {
+    "target_pct": 0.12,
+    "stop_pct": 0.045,
+    "hold_sessions": 7,
+    "max_positions": 2,
+    "atoms": [
+      [
+        {
+          "f": "rs20",
+          "side": "high",
+          "thr": 0.07340059829329726
+        },
+        {
+          "f": "market5_ret",
+          "side": "high",
+          "thr": 0.008543451793102896
+        }
+      ],
+      [
+        {
+          "f": "lift",
+          "side": "high",
+          "thr": 0.05965902346208485
+        },
+        {
+          "f": "gap",
+          "side": "low",
+          "thr": -3.413044438183023e-08
+        }
+      ],
+      [
+        {
+          "f": "lift",
+          "side": "low",
+          "thr": 0.04764147846387261
+        },
+        {
+          "f": "compression_ratio",
+          "side": "high",
+          "thr": 1.139118181416062
+        }
+      ]
+    ]
+  },
+  "candidates_total": 0,
+  "allowed_count": 0,
+  "rejected_count": 0,
+  "allowed": [],
+  "rejected": [],
+  "top_two_if_no_existing_positions": [],
+  "execution_warning": "Research entry is the breakout-session close. This scanner is shadow-only until next-session execution/slippage is separately validated; do not treat research close as a guaranteed live fill."
+}
