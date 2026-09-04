@@ -1,0 +1,81 @@
+{
+  "pattern": "Defensive Lift v5.0 Staged Pre-Breakout Entry",
+  "goal": "lower blended entry cost and precursor risk while retaining confirmed-breakout +12% upside",
+  "protocol": {
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_selection": true,
+    "min_wealth_ratio_vs_v32": 0.95,
+    "min_drawdown_reduction_vs_v32": 0.1
+  },
+  "baseline_v32": {
+    "2023": {
+      "trades": 22,
+      "final_equity": 140722.03738082896,
+      "total_return": 0.40722037380828957,
+      "cagr": 0.41020325936107405,
+      "max_drawdown": -0.06497255722349737,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.006652694351676178,
+        "median": 0.0,
+        "positive_rate": 0.3584905660377358,
+        "weekend_ge_2_rate": 0.20754716981132076,
+        "hit_2_anytime_rate": 0.24528301886792453,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486582
+      }
+    },
+    "2024": {
+      "trades": 27,
+      "final_equity": 143601.1212765443,
+      "total_return": 0.43601121276544297,
+      "cagr": 0.43779682868218006,
+      "max_drawdown": -0.11165676548755876,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.0073320644942106395,
+        "median": 0.0,
+        "positive_rate": 0.2692307692307692,
+        "weekend_ge_2_rate": 0.17307692307692307,
+        "hit_2_anytime_rate": 0.21153846153846154,
+        "worst": -0.034202640363496295,
+        "best": 0.10630703266282127
+      }
+    },
+    "final": {
+      "trades": 43,
+      "final_equity": 175858.21408703056,
+      "total_return": 0.7585821408703055,
+      "cagr": 0.6787618757867433,
+      "max_drawdown": -0.06909077753849258,
+      "weekly": {
+        "weeks": 58,
+        "avg": 0.010287760928235341,
+        "median": 0.0,
+        "positive_rate": 0.43103448275862066,
+        "weekend_ge_2_rate": 0.3103448275862069,
+        "hit_2_anytime_rate": 0.3275862068965517,
+        "worst": -0.04557030000308504,
+        "best": 0.10238833292864058
+      }
+    }
+  },
+  "grid": {
+    "tested": 216,
+    "eligible": 0
+  },
+  "selected": null,
+  "final_result": null,
+  "top20": []
+}
