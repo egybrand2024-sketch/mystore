@@ -1,0 +1,161 @@
+{
+  "pattern": "EGX Multi-Engine Weekly Return Portfolio v4.0",
+  "goal": "increase opportunity frequency so 2%+ weeks can come from diversified setups instead of increasing risk on DLP alone",
+  "engines": {
+    "DLP": {
+      "target": 0.12,
+      "stop": 0.045,
+      "horizon": 7
+    },
+    "BRT": {
+      "target": 0.1,
+      "stop": 0.04,
+      "horizon": 7
+    },
+    "PBC": {
+      "target": 0.08,
+      "stop": 0.035,
+      "horizon": 7
+    },
+    "FBR": {
+      "target": 0.08,
+      "stop": 0.035,
+      "horizon": 7
+    }
+  },
+  "friction_round_trip": 0.005,
+  "protocol": {
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_selection": true,
+    "max_validation_drawdown": 0.1,
+    "ranking": "maximize weaker validation-year average weekly return, then week-end >=2% rate, CAGR, lower DD"
+  },
+  "dataset": {
+    "stocks": 198,
+    "signals_total": 2609
+  },
+  "engine_standalone": {
+    "DLP": {
+      "2023": {
+        "signals": 32,
+        "positive": 19,
+        "positive_rate": 0.59375,
+        "targets": 9,
+        "stops": 9,
+        "avg_gross": 0.03333301743927267
+      },
+      "2024": {
+        "signals": 33,
+        "positive": 15,
+        "positive_rate": 0.45454545454545453,
+        "targets": 10,
+        "stops": 13,
+        "avg_gross": 0.021948900315441944
+      },
+      "final": {
+        "signals": 69,
+        "positive": 35,
+        "positive_rate": 0.5072463768115942,
+        "targets": 18,
+        "stops": 16,
+        "avg_gross": 0.025353370419535188
+      }
+    },
+    "BRT": {
+      "2023": {
+        "signals": 305,
+        "positive": 119,
+        "positive_rate": 0.3901639344262295,
+        "targets": 79,
+        "stops": 163,
+        "avg_gross": 0.008708319979308416
+      },
+      "2024": {
+        "signals": 282,
+        "positive": 91,
+        "positive_rate": 0.32269503546099293,
+        "targets": 67,
+        "stops": 175,
+        "avg_gross": 0.0007739593886825971
+      },
+      "final": {
+        "signals": 388,
+        "positive": 164,
+        "positive_rate": 0.422680412371134,
+        "targets": 89,
+        "stops": 187,
+        "avg_gross": 0.008244986800447563
+      }
+    },
+    "PBC": {
+      "2023": {
+        "signals": 212,
+        "positive": 81,
+        "positive_rate": 0.38207547169811323,
+        "targets": 74,
+        "stops": 123,
+        "avg_gross": 0.007656555221789956
+      },
+      "2024": {
+        "signals": 163,
+        "positive": 71,
+        "positive_rate": 0.43558282208588955,
+        "targets": 54,
+        "stops": 86,
+        "avg_gross": 0.011020665578376424
+      },
+      "final": {
+        "signals": 185,
+        "positive": 67,
+        "positive_rate": 0.3621621621621622,
+        "targets": 52,
+        "stops": 104,
+        "avg_gross": 0.004034292864414171
+      }
+    },
+    "FBR": {
+      "2023": {
+        "signals": 24,
+        "positive": 6,
+        "positive_rate": 0.25,
+        "targets": 5,
+        "stops": 18,
+        "avg_gross": -0.008444006828675283
+      },
+      "2024": {
+        "signals": 28,
+        "positive": 11,
+        "positive_rate": 0.39285714285714285,
+        "targets": 8,
+        "stops": 16,
+        "avg_gross": 0.005865119905467465
+      },
+      "final": {
+        "signals": 41,
+        "positive": 17,
+        "positive_rate": 0.4146341463414634,
+        "targets": 10,
+        "stops": 21,
+        "avg_gross": 0.005786857569043646
+      }
+    }
+  },
+  "grid": {
+    "tested": 216,
+    "eligible": 0
+  },
+  "selected": null,
+  "final_result": null,
+  "top20": []
+}
