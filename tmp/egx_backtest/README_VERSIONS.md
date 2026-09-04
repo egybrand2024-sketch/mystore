@@ -17,19 +17,25 @@
 | v4.2 | `DEFENSIVE_LIFT_V42.md` | Rejected | Market-Regime Exposure لم يخفض DD دون قص أرباح مهمة |
 | v4.3 | `DEFENSIVE_LIFT_V43.md` | Rejected after Holdout | Weekly Gain/Loss Entry Lock نجح في Validation ولم يحافظ على ميزة كافية في Final |
 | v5.1 | `DEFENSIVE_LIFT_V51.md` | Rejected as replacement / Diagnostic Reference | Correlation-Aware Risk خفّض DD لكنه قص جزءًا من العائد؛ أثبت أن Pearson correlation وحده لا يفسر Loss Clustering |
+| v5.2 | `DEFENSIVE_LIFT_V52.md` | Rejected | Pairwise Failure Probability؛ 160 تركيبة و0 اجتازت شروط الحفاظ على الثروة وخفض DD في 2023 و2024 |
 
 ## النسخة المرجعية الحالية
 
-يظل `v3.2` هو **High-Return Research Reference** لأنه حافظ تاريخيًا على أفضل عائد مطلق وسرعة تدوير رأس المال حتى الآن. `v5.1` أفضل كمختبر تشخيصي للمخاطرة، وليس كبديل مباشر.
+يظل `v3.2` هو **High-Return Research Reference**. `v5.1` و`v5.2` مهمتان كمختبرات لتشخيص مصدر الـDrawdown، لكنهما لم تثبتا كبديل أفضل.
+
+## نتيجة v5.2 الأساسية
+
+النموذج تم تدريبه على 2021–2022 فقط، ثم اختباره على 2023 و2024 قبل فتح أي Final. حجم عينة التدريب كان صغيرًا نسبيًا: 68 زوجًا فقط، منها 10 حالات فشل مشترك. رغم AUC مرتفع جدًا داخل التدريب، الأداء لم يكن مستقرًا خارج العينة: عدة نماذج هبطت في 2023 إلى AUC أقل من 0.5 ثم ارتفعت بقوة في 2024. لذلك لم توجد تركيبة تحافظ على >=97% من ثروة v3.2 وتخفض Max Drawdown >=10% في كل سنة Validation.
 
 ## الاتجاه البحثي التالي
 
-بعد v5.1، الاتجاه الأقوى هو **Shared Failure Risk / Pairwise Failure Probability** بدل raw price correlation:
+بعد فشل نموذج Probability المباشر، الاتجاه التالي يجب أن يقلل درجة الحرية بدل زيادتها:
 
-- قياس احتمالية فشل صفقتين معًا، لا مجرد تحركهما معًا.
-- استخدام بيانات معروفة قبل الدخول فقط.
-- التركيز على market impulse، relative-strength deterioration، breakout overextension، timing proximity، breadth/regime similarity، وتشابه خصائص الاختراق.
-- الإبقاء على 50% slot لأفضل فرصة وعدم تخفيض الحجم عشوائيًا.
+- بناء **Loss-Cluster State Machine** بسيط وقابل للتفسير.
+- التركيز على حالة المحفظة والسوق عند تتابع إشارات DLP، بدل محاولة توقع كل زوج بModel منفصل.
+- استخدام قواعد قليلة وثابتة يتم اشتقاقها من 2021–2022 ثم اختبارها على 2023 و2024.
+- الحفاظ على 50% slot لأفضل إشارة وعدم خفض الحجم إلا عند وجود دليل قوي على Cluster Risk.
+- قياس المحافظة على Right Tail كشرط صريح، وليس فقط Max Drawdown.
 
 ## قاعدة التوثيق
 
