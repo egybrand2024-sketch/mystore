@@ -1,0 +1,283 @@
+{
+  "audit": "v5.17 frozen four-week opportunity frequency",
+  "frozen_commit": "236519236da35fa19dfd4dc02b1cd332f8c4b0c9",
+  "period": [
+    "2026-07-26",
+    "2026-08-20"
+  ],
+  "rules_unchanged": true,
+  "data": {
+    "reference_symbols": 198,
+    "usable_symbols": 183,
+    "coverage_ratio": 0.9242424242424242,
+    "failed_count": 15,
+    "download_start": "2025-04-22",
+    "download_end_exclusive": "2026-09-05",
+    "market_dates": [
+      "2026-07-26",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-08-02",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06",
+      "2026-08-09",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-16",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20"
+    ]
+  },
+  "summary": {
+    "trading_days_scanned": 20,
+    "candidates_total": 0,
+    "allowed_opportunities": 0,
+    "rejected_by_v517_gate": 0,
+    "days_with_allowed_opportunity": 0,
+    "weeks_with_allowed_opportunity": 0,
+    "weeks_without_allowed_opportunity": 4,
+    "unique_allowed_symbols": 0,
+    "allowed_per_trading_day": 0.0,
+    "allowed_per_week": 0.0
+  },
+  "weeks": [
+    {
+      "week": "W1",
+      "start": "2026-07-26",
+      "end": "2026-07-30",
+      "trading_days": 5,
+      "candidates_total": 0,
+      "allowed_opportunities": 0,
+      "rejected_by_gate": 0,
+      "days_with_allowed": 0,
+      "allowed_symbols": []
+    },
+    {
+      "week": "W2",
+      "start": "2026-08-02",
+      "end": "2026-08-06",
+      "trading_days": 5,
+      "candidates_total": 0,
+      "allowed_opportunities": 0,
+      "rejected_by_gate": 0,
+      "days_with_allowed": 0,
+      "allowed_symbols": []
+    },
+    {
+      "week": "W3",
+      "start": "2026-08-09",
+      "end": "2026-08-13",
+      "trading_days": 5,
+      "candidates_total": 0,
+      "allowed_opportunities": 0,
+      "rejected_by_gate": 0,
+      "days_with_allowed": 0,
+      "allowed_symbols": []
+    },
+    {
+      "week": "W4",
+      "start": "2026-08-16",
+      "end": "2026-08-20",
+      "trading_days": 5,
+      "candidates_total": 0,
+      "allowed_opportunities": 0,
+      "rejected_by_gate": 0,
+      "days_with_allowed": 0,
+      "allowed_symbols": []
+    }
+  ],
+  "allowed_opportunities": [],
+  "rejected_signals": [],
+  "signal_date_gaps": [],
+  "daily": [
+    {
+      "date": "2026-07-26",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-07-27",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-07-28",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-07-29",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-07-30",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-02",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-03",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-04",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-05",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-06",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-09",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-10",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-11",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-12",
+      "universe_with_bar": 182,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-13",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-16",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-17",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-18",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-19",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    },
+    {
+      "date": "2026-08-20",
+      "universe_with_bar": 181,
+      "candidates_total": 0,
+      "allowed_count": 0,
+      "rejected_count": 0,
+      "allowed": [],
+      "rejected": []
+    }
+  ],
+  "note": "Opportunity = frozen v3.2 setup that passes the frozen v5.17 gate. This audit counts signals only; it does not assume live fill at the signal close."
+}
