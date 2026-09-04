@@ -48,7 +48,6 @@ jobs:
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin tmp-egx-defensive-lift-v517-oos-20260904
           git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json tmp/egx_backtest/audit_v517_week_20260823_27.json
           if git diff --cached --quiet; then
             echo "No scan changes"
