@@ -12,13 +12,18 @@ permissions:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - name: Checkout temporary branch
         uses: actions/checkout@v4
         with:
           ref: tmp-egx-defensive-lift-20260904
           fetch-depth: 1
+
+      - name: Install research dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install numpy scikit-learn
 
       - name: Fetch public EGX historical dataset
         run: |
@@ -35,14 +40,17 @@ jobs:
       - name: Run robust Defensive Lift v2 research
         run: python3 tmp/egx_backtest/backtest_v2_robust.py
 
+      - name: Run expanded Defensive Lift v3 research
+        run: python3 tmp/egx_backtest/backtest_v3_ml.py
+
       - name: Commit results to temporary branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tmp/egx_backtest/results.json tmp/egx_backtest/results_v2.json tmp/egx_backtest/results_v2_robust.json
+          git add tmp/egx_backtest/results.json tmp/egx_backtest/results_v2.json tmp/egx_backtest/results_v2_robust.json tmp/egx_backtest/results_v3_ml.json
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "EGX Defensive Lift v1/v2 research results"
+            git commit -m "EGX Defensive Lift v1/v2/v3 research results"
             git push origin HEAD:tmp-egx-defensive-lift-20260904
           fi
