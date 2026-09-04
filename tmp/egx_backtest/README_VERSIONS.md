@@ -16,20 +16,20 @@
 | v4.1 | `EGX_MULTI_ENGINE_V41.md` | Rejected | Quality Gate مشدد للمحركات الثانوية؛ لم توجد محفظة تجتاز الشروط |
 | v4.2 | `DEFENSIVE_LIFT_V42.md` | Rejected | Market-Regime Exposure لم يخفض DD دون قص أرباح مهمة |
 | v4.3 | `DEFENSIVE_LIFT_V43.md` | Rejected after Holdout | Weekly Gain/Loss Entry Lock نجح في Validation ولم يحافظ على ميزة كافية في Final |
+| v5.1 | `DEFENSIVE_LIFT_V51.md` | Rejected as replacement / Diagnostic Reference | Correlation-Aware Risk خفّض DD لكنه قص جزءًا من العائد؛ أثبت أن Pearson correlation وحده لا يفسر Loss Clustering |
 
 ## النسخة المرجعية الحالية
 
-حتى اكتمال نسخة جديدة تجتاز الاختبارات، يظل `v3.2` هو **High-Return Research Reference** لأنه حافظ تاريخيًا على أفضل توازن حالي بين قوة العائد وسرعة تدوير رأس المال، مع ضرورة تذكر أن نتائج الـBacktest ليست ضمانًا للأداء المستقبلي.
+يظل `v3.2` هو **High-Return Research Reference** لأنه حافظ تاريخيًا على أفضل عائد مطلق وسرعة تدوير رأس المال حتى الآن. `v5.1` أفضل كمختبر تشخيصي للمخاطرة، وليس كبديل مباشر.
 
 ## الاتجاه البحثي التالي
 
-بدل تقليل حجم v3.2 أو إضافة Setup Families أضعف، الاتجاه التالي هو **DLP Staged / Pre-Breakout Entry** داخل نفس عائلة الإشارة القوية:
+بعد v5.1، الاتجاه الأقوى هو **Shared Failure Risk / Pairwise Failure Probability** بدل raw price correlation:
 
-- جزء مبكر عند اكتمال Defensive Lift قبل الاختراق.
-- إضافة فقط بعد اختراق v2 المؤكد.
-- Stop/Time Stop مستقل للجزء المبكر.
-- الإبقاء على Right Tail وهدف +12%.
-- قياس Calendar-week وActive-week returns منفصلين.
+- قياس احتمالية فشل صفقتين معًا، لا مجرد تحركهما معًا.
+- استخدام بيانات معروفة قبل الدخول فقط.
+- التركيز على market impulse، relative-strength deterioration، breakout overextension، timing proximity، breadth/regime similarity، وتشابه خصائص الاختراق.
+- الإبقاء على 50% slot لأفضل فرصة وعدم تخفيض الحجم عشوائيًا.
 
 ## قاعدة التوثيق
 
