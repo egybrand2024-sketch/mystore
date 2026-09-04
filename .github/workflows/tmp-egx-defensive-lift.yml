@@ -1,13 +1,18 @@
 name: Frozen EGX Defensive Lift v5.17 Shadow Scanner
 
 on:
-  push:
-    branches:
-      - tmp-egx-defensive-lift-v517-oos-20260904
   workflow_dispatch:
+  schedule:
+    # EGX trading days: Sunday-Thursday. 14:30 UTC = 17:30 Cairo during UTC+3.
+    # The delay after market close gives Yahoo time to publish settled daily OHLC.
+    - cron: '30 14 * * 0-4'
 
 permissions:
   contents: write
+
+concurrency:
+  group: frozen-v517-shadow-scanner
+  cancel-in-progress: false
 
 jobs:
   scanner:
@@ -25,9 +30,19 @@ jobs:
           rm -rf egxdata
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
       - run: python3 tmp/egx_backtest/live_v517_shadow_scanner.py
+      - name: Archive scan by market date
+        run: |
+          SCAN_DATE=$(python3 -c "import json; print(json.load(open('tmp/egx_backtest/live_v517_shadow_scan.json'))['scan_date'])")
+          mkdir -p tmp/egx_backtest/live_v517_shadow_history
+          cp tmp/egx_backtest/live_v517_shadow_scan.json "tmp/egx_backtest/live_v517_shadow_history/scan_${SCAN_DATE}.json"
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-v517-oos-20260904
-          git add tmp/egx_backtest/live_v517_shadow_scan.json
-          if git diff --cached --quiet; then echo "No scan changes"; else git commit -m "Frozen v5.17 shadow scan" && git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904; fi
+          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/
+          if git diff --cached --quiet; then
+            echo "No scan changes"
+          else
+            git commit -m "Frozen v5.17 scheduled shadow scan"
+            git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904
+          fi
