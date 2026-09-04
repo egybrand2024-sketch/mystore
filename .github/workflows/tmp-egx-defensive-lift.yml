@@ -35,14 +35,16 @@ jobs:
           SCAN_DATE=$(python3 -c "import json; print(json.load(open('tmp/egx_backtest/live_v517_shadow_scan.json'))['scan_date'])")
           mkdir -p tmp/egx_backtest/live_v517_shadow_history
           cp tmp/egx_backtest/live_v517_shadow_scan.json "tmp/egx_backtest/live_v517_shadow_history/scan_${SCAN_DATE}.json"
+      - name: Measure next-session execution gap
+        run: python3 tmp/egx_backtest/live_v517_execution_audit.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin tmp-egx-defensive-lift-v517-oos-20260904
-          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/
+          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json
           if git diff --cached --quiet; then
             echo "No scan changes"
           else
-            git commit -m "Frozen v5.17 scheduled shadow scan"
+            git commit -m "Frozen v5.17 scheduled shadow scan and execution audit"
             git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904
           fi
