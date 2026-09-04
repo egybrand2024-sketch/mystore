@@ -12,6 +12,7 @@ on:
       - 'tmp/egx_backtest/live_v517_shadow_scanner.py'
       - 'tmp/egx_backtest/live_v517_execution_audit.py'
       - 'tmp/egx_backtest/audit_v517_week_20260823_27.py'
+      - 'tmp/egx_backtest/audit_v517_4weeks_20260726_0820.py'
 
 permissions:
   contents: write
@@ -45,13 +46,15 @@ jobs:
         run: python3 tmp/egx_backtest/live_v517_execution_audit.py
       - name: Audit prior week opportunities
         run: python3 tmp/egx_backtest/audit_v517_week_20260823_27.py
+      - name: Audit four prior weeks
+        run: python3 tmp/egx_backtest/audit_v517_4weeks_20260726_0820.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json tmp/egx_backtest/audit_v517_week_20260823_27.json
+          git add tmp/egx_backtest/live_v517_shadow_scan.json tmp/egx_backtest/live_v517_shadow_history/ tmp/egx_backtest/live_v517_execution_audit.json tmp/egx_backtest/audit_v517_week_20260823_27.json tmp/egx_backtest/audit_v517_4weeks_20260726_0820.json
           if git diff --cached --quiet; then
             echo "No scan changes"
           else
-            git commit -m "Frozen v5.17 shadow scan and prior-week audit"
+            git commit -m "Frozen v5.17 shadow scan and opportunity audits"
             git push origin HEAD:tmp-egx-defensive-lift-v517-oos-20260904
           fi
