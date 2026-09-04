@@ -1,0 +1,15 @@
+{
+  "mode": "EXECUTION_AUDIT_ONLY",
+  "frozen_commit": "236519236da35fa19dfd4dc02b1cd332f8c4b0c9",
+  "updated_utc": "2026-09-04T13:24:42.683920+00:00",
+  "records": [],
+  "summary": {
+    "signals": 0,
+    "measured": 0,
+    "waiting": 0,
+    "avg_open_slippage_pct": null,
+    "median_open_slippage_pct": null,
+    "max_abs_open_slippage_pct": null
+  },
+  "guardrail": "No live-entry rule is chosen from this file. It only measures next-session execution gap versus the frozen research close."
+}
