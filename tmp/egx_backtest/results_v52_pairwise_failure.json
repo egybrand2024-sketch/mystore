@@ -1,0 +1,1980 @@
+{
+  "pattern": "Defensive Lift v5.2 Pairwise Failure Probability",
+  "goal": "predict shared failure risk from contemporaneous pair features and block only high-risk second positions while keeping v3.2 50% slot size",
+  "fixed": {
+    "entry": "frozen v2 DLP",
+    "target": 0.12,
+    "stop": 0.045,
+    "horizon": 7,
+    "slots": 2,
+    "slot_size": 0.5,
+    "friction_round_trip": 0.005,
+    "ranking": "frozen v3.2 liquidity ranking"
+  },
+  "protocol": {
+    "model_train": [
+      "2021-01-01",
+      "2022-12-31"
+    ],
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_model_or_threshold_selection": true,
+    "pair_window_calendar_days": 12,
+    "label": "both trades gross return < 0",
+    "min_wealth_ratio_vs_v32_each_validation": 0.97,
+    "min_drawdown_reduction_each_validation": 0.1
+  },
+  "dataset": {
+    "stocks": 198,
+    "signals": 170,
+    "train_pairs": 68,
+    "train_positive_pairs": 10,
+    "2023_pairs": 51,
+    "2024_pairs": 40,
+    "final_pairs": 150
+  },
+  "baseline_v32": {
+    "2023": {
+      "trades": 20,
+      "skipped": 9,
+      "skip_reasons": {
+        "max_positions": 9
+      },
+      "final_equity": 138783.53314746817,
+      "total_return": 0.38783533147468163,
+      "cagr": 0.39065755495501797,
+      "max_drawdown": -0.06497255722349737,
+      "dd_peak": "2023-08-03",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.03421703898505833,
+      "positive_trade_rate": 0.65,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.00637302568278135,
+        "positive_rate": 0.32075471698113206,
+        "weekend_ge_2_rate": 0.18867924528301888,
+        "hit_2_anytime_rate": 0.22641509433962265,
+        "active_weeks": 26,
+        "active_avg": 0.013118870274779683,
+        "active_positive_rate": 0.6153846153846154,
+        "active_ge_2_rate": 0.38461538461538464,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486604
+      },
+      "avg_exposure": 0.21935713848714522
+    },
+    "2024": {
+      "trades": 27,
+      "skipped": 4,
+      "skip_reasons": {
+        "max_positions": 4
+      },
+      "final_equity": 146219.46177890824,
+      "total_return": 0.46219461778908233,
+      "cagr": 0.46410363757634143,
+      "max_drawdown": -0.1116567654875591,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.029776524488004302,
+      "positive_trade_rate": 0.5555555555555556,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.007683180459856233,
+        "positive_rate": 0.2692307692307692,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.23076923076923078,
+        "active_weeks": 26,
+        "active_avg": 0.015055175945336055,
+        "active_positive_rate": 0.46153846153846156,
+        "active_ge_2_rate": 0.38461538461538464,
+        "worst": -0.034202640363496295,
+        "best": 0.10630703266282127
+      },
+      "avg_exposure": 0.2510502763183125
+    },
+    "final": {
+      "trades": 42,
+      "skipped": 20,
+      "skip_reasons": {
+        "max_positions": 20
+      },
+      "final_equity": 171006.0075535486,
+      "total_return": 0.710060075535486,
+      "cagr": 0.6362049176510769,
+      "max_drawdown": -0.06909077753849246,
+      "dd_peak": "2025-05-05",
+      "dd_trough": "2025-06-30",
+      "avg_trade_return": 0.027083770319975935,
+      "positive_trade_rate": 0.5238095238095238,
+      "weekly": {
+        "weeks": 58,
+        "avg": 0.009755053791487818,
+        "positive_rate": 0.43103448275862066,
+        "weekend_ge_2_rate": 0.27586206896551724,
+        "hit_2_anytime_rate": 0.3275862068965517,
+        "active_weeks": 43,
+        "active_avg": 0.013612096273069389,
+        "active_positive_rate": 0.5813953488372093,
+        "active_ge_2_rate": 0.37209302325581395,
+        "worst": -0.04557030000308515,
+        "best": 0.10238833292864058
+      },
+      "avg_exposure": 0.42349475432538475
+    }
+  },
+  "grid": {
+    "models": 16,
+    "thresholds": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7
+    ],
+    "tested_portfolio_configs": 160,
+    "eligible": 0,
+    "model_diagnostics": [
+      {
+        "key": "lean_C0.1_cwnone",
+        "feature_set": "lean",
+        "C": 0.1,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9482758620689655,
+          "avg_prob_positive": 0.5696479806734246,
+          "avg_prob_other": 0.2452494956849001
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.30194805194805197,
+          "avg_prob_positive": 0.18426510771230714,
+          "avg_prob_other": 0.24387470673419703
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.8354978354978355,
+          "avg_prob_positive": 0.6159145672239458,
+          "avg_prob_other": 0.4229637232432917
+        }
+      },
+      {
+        "key": "lean_C0.1_cwbalanced",
+        "feature_set": "lean",
+        "C": 0.1,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9482758620689655,
+          "avg_prob_positive": 0.7973104554979671,
+          "avg_prob_other": 0.33523261473696947
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.3214285714285714,
+          "avg_prob_positive": 0.2675569345444789,
+          "avg_prob_other": 0.3655345388601512
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.8484848484848486,
+          "avg_prob_positive": 0.8602439364990034,
+          "avg_prob_other": 0.6397183829434223
+        }
+      },
+      {
+        "key": "lean_C0.5_cwnone",
+        "feature_set": "lean",
+        "C": 0.5,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9672413793103448,
+          "avg_prob_positive": 0.5996398964092655,
+          "avg_prob_other": 0.13333770889088192
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.34415584415584416,
+          "avg_prob_positive": 0.07769636438094406,
+          "avg_prob_other": 0.11467856845506887
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.8917748917748918,
+          "avg_prob_positive": 0.7469930544919372,
+          "avg_prob_other": 0.36332607701503117
+        }
+      },
+      {
+        "key": "lean_C0.5_cwbalanced",
+        "feature_set": "lean",
+        "C": 0.5,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9655172413793103,
+          "avg_prob_positive": 0.8489416574112669,
+          "avg_prob_other": 0.22049060846719348
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.36363636363636365,
+          "avg_prob_positive": 0.1361372315043818,
+          "avg_prob_other": 0.21104339693887963
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.8961038961038961,
+          "avg_prob_positive": 0.9435517199800844,
+          "avg_prob_other": 0.6083422962058209
+        }
+      },
+      {
+        "key": "lean_C1.0_cwnone",
+        "feature_set": "lean",
+        "C": 1.0,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9793103448275862,
+          "avg_prob_positive": 0.6293035901032721,
+          "avg_prob_other": 0.10360013173038733
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.38636363636363635,
+          "avg_prob_positive": 0.06193913505823229,
+          "avg_prob_other": 0.08203490676981903
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.9134199134199134,
+          "avg_prob_positive": 0.8180408518330028,
+          "avg_prob_other": 0.34004211951369623
+        }
+      },
+      {
+        "key": "lean_C1.0_cwbalanced",
+        "feature_set": "lean",
+        "C": 1.0,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9741379310344828,
+          "avg_prob_positive": 0.8667935162518845,
+          "avg_prob_other": 0.18087801234115594
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.37662337662337664,
+          "avg_prob_positive": 0.1074190405335856,
+          "avg_prob_other": 0.15647353900526892
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.9047619047619048,
+          "avg_prob_positive": 0.9621404882021088,
+          "avg_prob_other": 0.5661829207524018
+        }
+      },
+      {
+        "key": "lean_C2.0_cwnone",
+        "feature_set": "lean",
+        "C": 2.0,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9827586206896551,
+          "avg_prob_positive": 0.6661824752881709,
+          "avg_prob_other": 0.08174403057499245
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.4155844155844156,
+          "avg_prob_positive": 0.05754863274412287,
+          "avg_prob_other": 0.061312363152587694
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.9350649350649352,
+          "avg_prob_positive": 0.880064786586862,
+          "avg_prob_other": 0.31357857457766286
+        }
+      },
+      {
+        "key": "lean_C2.0_cwbalanced",
+        "feature_set": "lean",
+        "C": 2.0,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9844827586206897,
+          "avg_prob_positive": 0.8847060988184454,
+          "avg_prob_other": 0.14722591502367213
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.38636363636363635,
+          "avg_prob_positive": 0.09302893208761323,
+          "avg_prob_other": 0.12037283850111148
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.9134199134199135,
+          "avg_prob_positive": 0.9744896083174225,
+          "avg_prob_other": 0.5113430391679381
+        }
+      },
+      {
+        "key": "full_C0.1_cwnone",
+        "feature_set": "full",
+        "C": 0.1,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.996551724137931,
+          "avg_prob_positive": 0.7325786977058432,
+          "avg_prob_other": 0.21898784130175744
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.38961038961038963,
+          "avg_prob_positive": 0.22480246504048182,
+          "avg_prob_other": 0.2859822440421519
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.6926406926406926,
+          "avg_prob_positive": 0.7284298167402462,
+          "avg_prob_other": 0.6030374101373408
+        }
+      },
+      {
+        "key": "full_C0.1_cwbalanced",
+        "feature_set": "full",
+        "C": 0.1,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 0.9948275862068965,
+          "avg_prob_positive": 0.8836812327780879,
+          "avg_prob_other": 0.2836403022778685
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.3798701298701299,
+          "avg_prob_positive": 0.3066113787322167,
+          "avg_prob_other": 0.3893018032666633
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7229437229437229,
+          "avg_prob_positive": 0.8941975760249115,
+          "avg_prob_other": 0.7656625610859203
+        }
+      },
+      {
+        "key": "full_C0.5_cwnone",
+        "feature_set": "full",
+        "C": 0.5,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.8078251529684539,
+          "avg_prob_other": 0.09880252332834774
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.39610389610389607,
+          "avg_prob_positive": 0.11713493000963113,
+          "avg_prob_other": 0.1930021119191233
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7359307359307359,
+          "avg_prob_positive": 0.8628933307226728,
+          "avg_prob_other": 0.6330387693590057
+        }
+      },
+      {
+        "key": "full_C0.5_cwbalanced",
+        "feature_set": "full",
+        "C": 0.5,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.9314295240141577,
+          "avg_prob_other": 0.1504923957196537
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.4025974025974026,
+          "avg_prob_positive": 0.18141841569330355,
+          "avg_prob_other": 0.2730292379031653
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7316017316017316,
+          "avg_prob_positive": 0.9509672710774558,
+          "avg_prob_other": 0.7603725351105138
+        }
+      },
+      {
+        "key": "full_C1.0_cwnone",
+        "feature_set": "full",
+        "C": 1.0,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.8477938094374634,
+          "avg_prob_other": 0.06686171808937934
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.3831168831168831,
+          "avg_prob_positive": 0.09508102004146991,
+          "avg_prob_other": 0.16956090551941905
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7359307359307359,
+          "avg_prob_positive": 0.9058174053431985,
+          "avg_prob_other": 0.6419405262728186
+        }
+      },
+      {
+        "key": "full_C1.0_cwbalanced",
+        "feature_set": "full",
+        "C": 1.0,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.9476953025489745,
+          "avg_prob_other": 0.10681920806473275
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.3928571428571428,
+          "avg_prob_positive": 0.1498476874405318,
+          "avg_prob_other": 0.23479921698472708
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7445887445887446,
+          "avg_prob_positive": 0.9645455598502443,
+          "avg_prob_other": 0.7482991026112745
+        }
+      },
+      {
+        "key": "full_C2.0_cwnone",
+        "feature_set": "full",
+        "C": 2.0,
+        "class_weight": null,
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.8870264730048154,
+          "avg_prob_other": 0.044122921312076825
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.38311688311688313,
+          "avg_prob_positive": 0.08507606837468513,
+          "avg_prob_other": 0.15257257640289262
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7445887445887447,
+          "avg_prob_positive": 0.9344800478418892,
+          "avg_prob_other": 0.6442823656224589
+        }
+      },
+      {
+        "key": "full_C2.0_cwbalanced",
+        "feature_set": "full",
+        "C": 2.0,
+        "class_weight": "balanced",
+        "train": {
+          "pairs": 68,
+          "positive_pairs": 10,
+          "positive_rate": 0.14705882352941177,
+          "auc": 1.0,
+          "avg_prob_positive": 0.9621106774119925,
+          "avg_prob_other": 0.07291319896541257
+        },
+        "2023_pairs": {
+          "pairs": 51,
+          "positive_pairs": 7,
+          "positive_rate": 0.13725490196078433,
+          "auc": 0.38636363636363635,
+          "avg_prob_positive": 0.133866715340284,
+          "avg_prob_other": 0.2049328266481685
+        },
+        "2024_pairs": {
+          "pairs": 40,
+          "positive_pairs": 7,
+          "positive_rate": 0.175,
+          "auc": 0.7445887445887446,
+          "avg_prob_positive": 0.9743974909391089,
+          "avg_prob_other": 0.7325689681377101
+        }
+      }
+    ]
+  },
+  "selected": null,
+  "final_result": null,
+  "final_pair_model_diagnostic": null,
+  "selected_model_coefficients": null,
+  "best_near_misses": [
+    {
+      "model_key": "lean_C0.1_cwnone",
+      "threshold": 0.4,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 7,
+          "pair_failure_gate": 2
+        },
+        "final_equity": 134858.75735601623,
+        "total_return": 0.34858757356016223,
+        "cagr": 0.35108972024088425,
+        "max_drawdown": -0.05090424457410536,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03127936241542529,
+        "positive_trade_rate": 0.6,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00583066290617202,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 27,
+          "active_avg": 0.011568348147554705,
+          "active_positive_rate": 0.5925925925925926,
+          "active_ge_2_rate": 0.37037037037037035,
+          "worst": -0.023919711701230195,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21907361770665573
+      },
+      "2024": {
+        "trades": 21,
+        "skipped": 10,
+        "skip_reasons": {
+          "pair_failure_gate": 10
+        },
+        "final_equity": 136454.81205044975,
+        "total_return": 0.3645481205044976,
+        "cagr": 0.3660054001200592,
+        "max_drawdown": -0.08006634024821724,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-07",
+        "avg_trade_return": 0.031163976925269083,
+        "positive_trade_rate": 0.5238095238095238,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.0063239523092831805,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.19230769230769232,
+          "active_weeks": 26,
+          "active_avg": 0.012881054578062209,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.19362345794047078
+      },
+      "min_wealth_ratio": 0.9332192198653887,
+      "min_dd_reduction": 0.2165269961746895,
+      "min_cagr": 0.35108972024088425,
+      "min_active_week_avg": 0.011568348147554705
+    },
+    {
+      "model_key": "lean_C0.1_cwnone",
+      "threshold": 0.45,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 7,
+          "pair_failure_gate": 2
+        },
+        "final_equity": 134858.75735601623,
+        "total_return": 0.34858757356016223,
+        "cagr": 0.35108972024088425,
+        "max_drawdown": -0.05090424457410536,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03127936241542529,
+        "positive_trade_rate": 0.6,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00583066290617202,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 27,
+          "active_avg": 0.011568348147554705,
+          "active_positive_rate": 0.5925925925925926,
+          "active_ge_2_rate": 0.37037037037037035,
+          "worst": -0.023919711701230195,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21907361770665573
+      },
+      "2024": {
+        "trades": 21,
+        "skipped": 10,
+        "skip_reasons": {
+          "pair_failure_gate": 10
+        },
+        "final_equity": 136454.81205044975,
+        "total_return": 0.3645481205044976,
+        "cagr": 0.3660054001200592,
+        "max_drawdown": -0.08006634024821724,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-07",
+        "avg_trade_return": 0.031163976925269083,
+        "positive_trade_rate": 0.5238095238095238,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.0063239523092831805,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.19230769230769232,
+          "active_weeks": 26,
+          "active_avg": 0.012881054578062209,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.19362345794047078
+      },
+      "min_wealth_ratio": 0.9332192198653887,
+      "min_dd_reduction": 0.2165269961746895,
+      "min_cagr": 0.35108972024088425,
+      "min_active_week_avg": 0.011568348147554705
+    },
+    {
+      "model_key": "lean_C0.1_cwbalanced",
+      "threshold": 0.65,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 7,
+          "pair_failure_gate": 2
+        },
+        "final_equity": 134858.75735601623,
+        "total_return": 0.34858757356016223,
+        "cagr": 0.35108972024088425,
+        "max_drawdown": -0.05090424457410536,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03127936241542529,
+        "positive_trade_rate": 0.6,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00583066290617202,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 27,
+          "active_avg": 0.011568348147554705,
+          "active_positive_rate": 0.5925925925925926,
+          "active_ge_2_rate": 0.37037037037037035,
+          "worst": -0.023919711701230195,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21907361770665573
+      },
+      "2024": {
+        "trades": 21,
+        "skipped": 10,
+        "skip_reasons": {
+          "pair_failure_gate": 10
+        },
+        "final_equity": 136454.81205044975,
+        "total_return": 0.3645481205044976,
+        "cagr": 0.3660054001200592,
+        "max_drawdown": -0.08006634024821724,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-07",
+        "avg_trade_return": 0.031163976925269083,
+        "positive_trade_rate": 0.5238095238095238,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.0063239523092831805,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.19230769230769232,
+          "active_weeks": 26,
+          "active_avg": 0.012881054578062209,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.19362345794047078
+      },
+      "min_wealth_ratio": 0.9332192198653887,
+      "min_dd_reduction": 0.2165269961746895,
+      "min_cagr": 0.35108972024088425,
+      "min_active_week_avg": 0.011568348147554705
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.35,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 7,
+          "pair_failure_gate": 2
+        },
+        "final_equity": 134858.75735601623,
+        "total_return": 0.34858757356016223,
+        "cagr": 0.35108972024088425,
+        "max_drawdown": -0.05090424457410536,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03127936241542529,
+        "positive_trade_rate": 0.6,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00583066290617202,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 27,
+          "active_avg": 0.011568348147554705,
+          "active_positive_rate": 0.5925925925925926,
+          "active_ge_2_rate": 0.37037037037037035,
+          "worst": -0.023919711701230195,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.21907361770665573
+      },
+      "2024": {
+        "trades": 22,
+        "skipped": 9,
+        "skip_reasons": {
+          "pair_failure_gate": 9
+        },
+        "final_equity": 133123.44464487024,
+        "total_return": 0.33123444644870226,
+        "cagr": 0.33254303923153006,
+        "max_drawdown": -0.08006634024821713,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-07",
+        "avg_trade_return": 0.027485203826393214,
+        "positive_trade_rate": 0.5,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.005839787592222361,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.15384615384615385,
+          "hit_2_anytime_rate": 0.17307692307692307,
+          "active_weeks": 26,
+          "active_avg": 0.011912725143940586,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.3076923076923077,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.1978651099163282
+      },
+      "min_wealth_ratio": 0.9104358819632375,
+      "min_dd_reduction": 0.2165269961746895,
+      "min_cagr": 0.33254303923153006,
+      "min_active_week_avg": 0.011568348147554705
+    },
+    {
+      "model_key": "full_C0.1_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 153284.76834137127,
+        "total_return": 0.5328476834137126,
+        "cagr": 0.5350976882097642,
+        "max_drawdown": -0.09065236441613522,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03744169674056557,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.00860361678863867,
+          "positive_rate": 0.2692307692307692,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "active_weeks": 26,
+          "active_avg": 0.016896048602900927,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.22831427026835194
+      },
+      "min_wealth_ratio": 1.0,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "full_C0.5_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 22,
+        "skipped": 9,
+        "skip_reasons": {
+          "pair_failure_gate": 6,
+          "max_positions": 3
+        },
+        "final_equity": 148475.81408390112,
+        "total_return": 0.48475814083901114,
+        "cagr": 0.4867748026425327,
+        "max_drawdown": -0.09065236441613544,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03790739786470792,
+        "positive_trade_rate": 0.5909090909090909,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007963369059194996,
+          "positive_rate": 0.2692307692307692,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "active_weeks": 26,
+          "active_avg": 0.01504875578307583,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.21848137927967215
+      },
+      "min_wealth_ratio": 1.0,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "full_C1.0_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 22,
+        "skipped": 9,
+        "skip_reasons": {
+          "pair_failure_gate": 6,
+          "max_positions": 3
+        },
+        "final_equity": 148475.81408390112,
+        "total_return": 0.48475814083901114,
+        "cagr": 0.4867748026425327,
+        "max_drawdown": -0.09065236441613544,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03790739786470792,
+        "positive_trade_rate": 0.5909090909090909,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007963369059194996,
+          "positive_rate": 0.2692307692307692,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.23076923076923078,
+          "active_weeks": 26,
+          "active_avg": 0.01504875578307583,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.21848137927967215
+      },
+      "min_wealth_ratio": 1.0,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.65,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C1.0_cwnone",
+      "threshold": 0.65,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C1.0_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C2.0_cwnone",
+      "threshold": 0.65,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C2.0_cwnone",
+      "threshold": 0.7,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 24,
+        "skipped": 7,
+        "skip_reasons": {
+          "pair_failure_gate": 4,
+          "max_positions": 3
+        },
+        "final_equity": 145704.68048116547,
+        "total_return": 0.4570468048116547,
+        "cagr": 0.4589314339835622,
+        "max_drawdown": -0.08836597478710795,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03287905098650484,
+        "positive_trade_rate": 0.5833333333333334,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007607489687880344,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015448129335256543,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.23701637361542782
+      },
+      "min_wealth_ratio": 0.9964793927464927,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.1_cwnone",
+      "threshold": 0.55,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.5,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.55,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C0.5_cwnone",
+      "threshold": 0.6,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C1.0_cwnone",
+      "threshold": 0.45,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C1.0_cwnone",
+      "threshold": 0.5,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    },
+    {
+      "model_key": "lean_C1.0_cwnone",
+      "threshold": 0.55,
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "max_positions": 9
+        },
+        "final_equity": 138783.53314746817,
+        "total_return": 0.38783533147468163,
+        "cagr": 0.39065755495501797,
+        "max_drawdown": -0.06497255722349737,
+        "dd_peak": "2023-08-03",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03421703898505833,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.00637302568278135,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.18867924528301888,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 26,
+          "active_avg": 0.013118870274779683,
+          "active_positive_rate": 0.6153846153846154,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.02366409574468087,
+          "best": 0.05501141881486604
+        },
+        "avg_exposure": 0.21935713848714522
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "pair_failure_gate": 5,
+          "max_positions": 3
+        },
+        "final_equity": 145339.25130548826,
+        "total_return": 0.4533925130548826,
+        "cagr": 0.4552598660667999,
+        "max_drawdown": -0.09065236441613556,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.034095379207546704,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007558503697878581,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.17307692307692307,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015350157355253016,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.34615384615384615,
+          "worst": -0.034202640363496406,
+          "best": 0.10630703266282149
+        },
+        "avg_exposure": 0.22229921015212487
+      },
+      "min_wealth_ratio": 0.9939802098659691,
+      "min_dd_reduction": 0.0,
+      "min_cagr": 0.39065755495501797,
+      "min_active_week_avg": 0.013118870274779683
+    }
+  ]
+}
