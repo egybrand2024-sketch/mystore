@@ -71,18 +71,15 @@ def build_signal_trades(data):
     for s,rows in data.items(): signals+=v56.collect(s,rows,market)
     out=[]
     for sig in signals:
-        rows=data[sig['symbol']]; i=sig['breakout_index']; o=v56.trade_outcome(rows,i)
-        if o:
-            out.append({**sig,**o})
+        rows=data[sig['symbol']]; o=v56.base_outcome(rows,sig)
+        if o: out.append({**sig,**o})
     return out,signals
 
 def simulate(base_trades,data,period,cfg=None):
-    # cfg None reproduces v3.2 exact baseline behavior using full 50% entry.
     dates=sorted({r['date'] for rows in data.values() for r in rows if period[0]<=r['date']<=period[1]})
     closes={s:{r['date']:r['close'] for r in rows} for s,rows in data.items()}
     highs={s:{r['date']:r['high'] for r in rows} for s,rows in data.items()}
     lows={s:{r['date']:r['low'] for r in rows} for s,rows in data.items()}
-    rows_by_sym=data
     idxmap={s:{r['date']:i for i,r in enumerate(rows)} for s,rows in data.items()}
     eb=defaultdict(list)
     for tr in base_trades:
@@ -99,30 +96,26 @@ def simulate(base_trades,data,period,cfg=None):
         return cash+pv,pv
 
     for d in dates:
-        # manage existing positions first using daily OHLC; stop-first.
         for s in list(pos):
             q=pos[s]; px=closes[s].get(d)
             if px is None: continue
             last[s]=px
             if d==q['entry_date']: continue
-            rowi=idxmap[s][d]
             q['age']+=1
-            # stop/target on combined position based on original signal entry anchor.
             stop_px=q['anchor_entry']*(1-STOP); target_px=q['anchor_entry']*(1+TARGET)
             exit_type=None; exit_px=None
             if lows[s][d]<=stop_px: exit_type='stop'; exit_px=stop_px
             elif highs[s][d]>=target_px: exit_type='target'; exit_px=target_px
             elif q['age']>=HORIZON: exit_type='timeout'; exit_px=px
 
-            # staged add/exit decision only if still alive and not decided.
             if cfg and not q['stage_decided'] and q['age']>=cfg['add_day'] and exit_type is None:
-                rows=rows_by_sym[s]; ei=q['entry_index']
+                rows=data[s]; ei=q['entry_index']
                 ok,_,diag=confirm(rows,ei,cfg['add_day'],cfg['confirm_mode'],q['anchor_entry'])
                 q['stage_decided']=True; q['confirm_diag']=diag; q['confirmed']=ok
                 if ok:
                     eq,_=mark(d); target_budget=eq*0.50; add_budget=max(0,min(target_budget-q['budget'],cash))
                     if add_budget>1:
-                        invested=add_budget*(1-half); add_sh=invested/px; cash-=add_budget
+                        add_sh=add_budget*(1-half)/px; cash-=add_budget
                         q['shares']+=add_sh; q['budget']+=add_budget; q['added']=True; q['add_date']=d; q['add_price']=px
                 elif cfg['unconfirmed_action']=='exit_probe':
                     exit_type='early_unconfirmed'; exit_px=px
@@ -136,9 +129,7 @@ def simulate(base_trades,data,period,cfg=None):
             s=tr['symbol']
             if s in pos: skip['duplicate_symbol']+=1; continue
             if len(pos)>=SLOTS: skip['max_positions']+=1; continue
-            eq,_=mark(d)
-            frac=0.50 if cfg is None else cfg['probe_frac']
-            budget=min(eq*frac,cash)
+            eq,_=mark(d); frac=0.50 if cfg is None else cfg['probe_frac']; budget=min(eq*frac,cash)
             if budget<=1: skip['cash']+=1; continue
             entry=tr['entry']; shares=budget*(1-half)/entry; cash-=budget
             pos[s]={'shares':shares,'budget':budget,'entry':entry,'anchor_entry':entry,'entry_date':d,'entry_index':idxmap[s][d],'age':0,'stage_decided':cfg is None,'confirmed':cfg is None,'added':False,'probe_frac':frac}
