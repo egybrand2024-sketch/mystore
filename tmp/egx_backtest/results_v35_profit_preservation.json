@@ -1,0 +1,133 @@
+{
+  "pattern": "Defensive Lift v3.5 Profit Preservation Risk Engine",
+  "goal": "keep +12% upside and v3.2 capital concentration while compressing losses after price proves itself",
+  "fixed": {
+    "target": 0.12,
+    "initial_stop": 0.045,
+    "horizon": 7,
+    "slots": 2,
+    "friction_round_trip": 0.005
+  },
+  "protocol": {
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_selection": true,
+    "min_validation_ending_wealth_ratio_vs_v32": 0.98,
+    "min_validation_drawdown_reduction_vs_v32": 0.1
+  },
+  "grid": {
+    "tested": 960,
+    "eligible": 0,
+    "protect_triggers": [
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "protect_stops": [
+      -0.02,
+      -0.01,
+      0.0,
+      0.01
+    ],
+    "lock_triggers": [
+      0.06,
+      0.08,
+      0.1
+    ],
+    "lock_stops": [
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "weekly_loss_locks": [
+      null,
+      0.015,
+      0.02,
+      0.025,
+      0.03
+    ]
+  },
+  "baseline_v32": {
+    "2023": {
+      "trades": 20,
+      "skipped": 9,
+      "final_equity": 138783.53314746817,
+      "total_return": 0.38783533147468163,
+      "cagr": 0.39065755495501797,
+      "max_drawdown": -0.06497255722349737,
+      "dd_peak": "2023-08-03",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.03421703898505833,
+      "positive_trade_rate": 0.65,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.00637302568278135,
+        "median": 0.0,
+        "positive_rate": 0.32075471698113206,
+        "weekend_ge_2_rate": 0.18867924528301888,
+        "hit_2_anytime_rate": 0.22641509433962265,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486604
+      }
+    },
+    "2024": {
+      "trades": 27,
+      "skipped": 4,
+      "final_equity": 146219.46177890824,
+      "total_return": 0.46219461778908233,
+      "cagr": 0.46410363757634143,
+      "max_drawdown": -0.1116567654875591,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.029776524488004302,
+      "positive_trade_rate": 0.5555555555555556,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.007683180459856233,
+        "median": 0.0,
+        "positive_rate": 0.2692307692307692,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.23076923076923078,
+        "worst": -0.034202640363496295,
+        "best": 0.10630703266282127
+      }
+    },
+    "final": {
+      "trades": 42,
+      "skipped": 20,
+      "final_equity": 171006.0075535486,
+      "total_return": 0.710060075535486,
+      "cagr": 0.6362049176510769,
+      "max_drawdown": -0.06909077753849246,
+      "dd_peak": "2025-05-05",
+      "dd_trough": "2025-06-30",
+      "avg_trade_return": 0.027083770319975935,
+      "positive_trade_rate": 0.5238095238095238,
+      "weekly": {
+        "weeks": 58,
+        "avg": 0.009755053791487818,
+        "median": 0.0,
+        "positive_rate": 0.43103448275862066,
+        "weekend_ge_2_rate": 0.27586206896551724,
+        "hit_2_anytime_rate": 0.3275862068965517,
+        "worst": -0.04557030000308515,
+        "best": 0.10238833292864058
+      }
+    }
+  },
+  "selected": null,
+  "final_result": null,
+  "conclusion": "No configuration preserved >=98% of v3.2 ending wealth AND reduced drawdown >=10% in both validation years."
+}
