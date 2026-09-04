@@ -1,0 +1,40 @@
+name: Frozen v5.17 H1 Last Week Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - tmp-egx-defensive-lift-v517-h1-20260904
+    paths:
+      - '.github/workflows/tmp-egx-v517-h1-audit.yml'
+      - 'tmp/egx_backtest/audit_v517_h1_lastweek.py'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-egx-defensive-lift-v517-h1-20260904
+          fetch-depth: 1
+      - run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install numpy scikit-learn pandas yfinance
+      - run: |
+          rm -rf egxdata
+          git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
+      - run: python3 tmp/egx_backtest/audit_v517_h1_lastweek.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tmp/egx_backtest/results_v517_h1_lastweek.json
+          if git diff --cached --quiet; then
+            echo "No result changes"
+          else
+            git commit -m "Frozen v5.17 H1 last-week result"
+            git push origin HEAD:tmp-egx-defensive-lift-v517-h1-20260904
+          fi
