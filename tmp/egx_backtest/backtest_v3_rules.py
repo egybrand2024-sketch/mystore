@@ -128,7 +128,7 @@ def main():
             ranked.append({
               "rules":[x["desc"] for x in combo],"rule_names":[x["name"] for x in combo],
               "fold_2023":a,"fold_2024":b,"min_wilson":min(la,lb),"avg_wilson":v3.mean([la,lb]),
-              "min_win_rate":min(a["win_rate"],b["win_rate"]),"avg_win_rate":v3.mean([a["win_rate"],b["win_rate"]),
+              "min_win_rate":min(a["win_rate"],b["win_rate"]),"avg_win_rate":v3.mean([a["win_rate"],b["win_rate"]]),
               "combined_signals":a["signals"]+b["signals"],
               "combo":combo,
             })
