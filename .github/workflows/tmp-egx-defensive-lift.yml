@@ -6,6 +6,13 @@ on:
     # EGX trading days: Sunday-Thursday. 14:30 UTC = 17:30 Cairo during UTC+3.
     # The delay after market close gives Yahoo time to publish settled daily OHLC.
     - cron: '30 14 * * 0-4'
+  push:
+    branches:
+      - tmp-egx-defensive-lift-v517-oos-20260904
+    paths:
+      - '.github/workflows/tmp-egx-defensive-lift.yml'
+      - 'tmp/egx_backtest/live_v517_shadow_scanner.py'
+      - 'tmp/egx_backtest/live_v517_execution_audit.py'
 
 permissions:
   contents: write
