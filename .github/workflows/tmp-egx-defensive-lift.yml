@@ -43,7 +43,7 @@ jobs:
       - name: Run expanded Defensive Lift v3 ML research
         run: python3 tmp/egx_backtest/backtest_v3_ml.py
 
-      - name: Run expanded Defensive Lift v3 rule research
+      - name: Run expanded Defensive Lift v3 rule research after syntax fix
         run: python3 tmp/egx_backtest/backtest_v3_rules.py
 
       - name: Commit results to temporary branch
