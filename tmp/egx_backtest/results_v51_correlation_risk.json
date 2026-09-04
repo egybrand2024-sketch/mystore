@@ -1,0 +1,652 @@
+{
+  "pattern": "Defensive Lift v5.1 Correlation-Aware Risk Engine",
+  "goal": "preserve 50% size for strong DLP trades while blocking only overlapping hidden risk that is historically correlated",
+  "fixed": {
+    "entry": "frozen v2 DLP",
+    "target": 0.12,
+    "stop": 0.045,
+    "horizon": 7,
+    "slots": 2,
+    "slot_size": 0.5,
+    "friction_round_trip": 0.005
+  },
+  "protocol": {
+    "validation_2023": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "validation_2024": [
+      "2024-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": [
+      "2025-01-01",
+      "2026-02-28"
+    ],
+    "final_not_used_for_selection": true,
+    "min_wealth_ratio_vs_v32_each_validation": 0.97,
+    "min_drawdown_reduction_each_validation": 0.1
+  },
+  "dataset": {
+    "stocks": 198,
+    "signals": 170
+  },
+  "baseline_v32": {
+    "2023": {
+      "trades": 20,
+      "skipped": 9,
+      "skip_reasons": {
+        "max_positions": 9
+      },
+      "final_equity": 138783.53314746817,
+      "total_return": 0.38783533147468163,
+      "cagr": 0.39065755495501797,
+      "max_drawdown": -0.06497255722349737,
+      "dd_peak": "2023-08-03",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.03421703898505833,
+      "positive_trade_rate": 0.65,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.00637302568278135,
+        "median": 0.0,
+        "positive_rate": 0.32075471698113206,
+        "weekend_ge_2_rate": 0.18867924528301888,
+        "hit_2_anytime_rate": 0.22641509433962265,
+        "active_weeks": 26,
+        "active_avg": 0.013118870274779683,
+        "active_positive_rate": 0.6153846153846154,
+        "active_ge_2_rate": 0.38461538461538464,
+        "worst": -0.02366409574468087,
+        "best": 0.05501141881486604
+      },
+      "avg_exposure": 0.21935713848714522
+    },
+    "2024": {
+      "trades": 27,
+      "skipped": 4,
+      "skip_reasons": {
+        "max_positions": 4
+      },
+      "final_equity": 146219.46177890824,
+      "total_return": 0.46219461778908233,
+      "cagr": 0.46410363757634143,
+      "max_drawdown": -0.1116567654875591,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.029776524488004302,
+      "positive_trade_rate": 0.5555555555555556,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.007683180459856233,
+        "median": 0.0,
+        "positive_rate": 0.2692307692307692,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.23076923076923078,
+        "active_weeks": 26,
+        "active_avg": 0.015055175945336055,
+        "active_positive_rate": 0.46153846153846156,
+        "active_ge_2_rate": 0.38461538461538464,
+        "worst": -0.034202640363496295,
+        "best": 0.10630703266282127
+      },
+      "avg_exposure": 0.2510502763183125
+    },
+    "final": {
+      "trades": 42,
+      "skipped": 20,
+      "skip_reasons": {
+        "max_positions": 20
+      },
+      "final_equity": 171006.0075535486,
+      "total_return": 0.710060075535486,
+      "cagr": 0.6362049176510769,
+      "max_drawdown": -0.06909077753849246,
+      "dd_peak": "2025-05-05",
+      "dd_trough": "2025-06-30",
+      "avg_trade_return": 0.027083770319975935,
+      "positive_trade_rate": 0.5238095238095238,
+      "weekly": {
+        "weeks": 58,
+        "avg": 0.009755053791487818,
+        "median": 0.0,
+        "positive_rate": 0.43103448275862066,
+        "weekend_ge_2_rate": 0.27586206896551724,
+        "hit_2_anytime_rate": 0.3275862068965517,
+        "active_weeks": 43,
+        "active_avg": 0.013612096273069389,
+        "active_positive_rate": 0.5813953488372093,
+        "active_ge_2_rate": 0.37209302325581395,
+        "worst": -0.04557030000308515,
+        "best": 0.10238833292864058
+      },
+      "avg_exposure": 0.42349475432538475
+    },
+    "loss_cluster_diagnostics": {
+      "2023": {
+        "overlapping_pairs": 8,
+        "both_negative_pairs": 1,
+        "both_stop_pairs": 0,
+        "avg_corr_both_negative": -0.039661741873324566,
+        "avg_corr_other_pairs": 0.18178313260584902,
+        "avg_down_overlap_both_negative": 0.25,
+        "avg_down_overlap_other_pairs": 0.16117295403009688
+      },
+      "2024": {
+        "overlapping_pairs": 15,
+        "both_negative_pairs": 1,
+        "both_stop_pairs": 1,
+        "avg_corr_both_negative": 0.35226942611364376,
+        "avg_corr_other_pairs": 0.13346857901001272,
+        "avg_down_overlap_both_negative": 0.23529411764705882,
+        "avg_down_overlap_other_pairs": 0.19915484535121863
+      },
+      "final": {
+        "overlapping_pairs": 34,
+        "both_negative_pairs": 9,
+        "both_stop_pairs": 2,
+        "avg_corr_both_negative": 0.08094376605097126,
+        "avg_corr_other_pairs": 0.15462820612281009,
+        "avg_down_overlap_both_negative": 0.19360161443494778,
+        "avg_down_overlap_other_pairs": 0.17834797297645594
+      }
+    }
+  },
+  "grid": {
+    "tested": 360,
+    "eligible": 3,
+    "lookbacks": [
+      20,
+      40,
+      60
+    ],
+    "corr_thresholds": [
+      0.2,
+      0.35,
+      0.5,
+      0.65,
+      0.8
+    ],
+    "down_thresholds": [
+      0.25,
+      0.4,
+      0.55,
+      1.01
+    ],
+    "gate_modes": [
+      "corr",
+      "or",
+      "and"
+    ],
+    "rank_modes": [
+      "liquidity",
+      "quality"
+    ]
+  },
+  "selected": {
+    "config": {
+      "lookback": 40,
+      "corr_threshold": 0.2,
+      "down_threshold": 0.25,
+      "gate_mode": "or",
+      "rank_mode": "quality"
+    },
+    "2023": {
+      "trades": 18,
+      "skipped": 11,
+      "skip_reasons": {
+        "correlation_gate": 8,
+        "max_positions": 3
+      },
+      "final_equity": 135801.8854405234,
+      "total_return": 0.35801885440523384,
+      "cagr": 0.3605972721263664,
+      "max_drawdown": -0.04308669143288557,
+      "dd_peak": "2023-08-22",
+      "dd_trough": "2023-09-03",
+      "avg_trade_return": 0.035573975522922546,
+      "positive_trade_rate": 0.6111111111111112,
+      "weekly": {
+        "weeks": 53,
+        "avg": 0.005949615218638849,
+        "median": 0.0,
+        "positive_rate": 0.32075471698113206,
+        "weekend_ge_2_rate": 0.16981132075471697,
+        "hit_2_anytime_rate": 0.20754716981132076,
+        "active_weeks": 27,
+        "active_avg": 0.0114054598850615,
+        "active_positive_rate": 0.5925925925925926,
+        "active_ge_2_rate": 0.3333333333333333,
+        "worst": -0.023919711701230306,
+        "best": 0.05720349999999996
+      },
+      "avg_exposure": 0.2006128349041548
+    },
+    "2024": {
+      "trades": 22,
+      "skipped": 9,
+      "skip_reasons": {
+        "correlation_gate": 6,
+        "max_positions": 3
+      },
+      "final_equity": 145974.82889370667,
+      "total_return": 0.45974828893706676,
+      "cagr": 0.4616457100755542,
+      "max_drawdown": -0.08011330922812487,
+      "dd_peak": "2024-07-28",
+      "dd_trough": "2024-10-02",
+      "avg_trade_return": 0.03597514015794309,
+      "positive_trade_rate": 0.5454545454545454,
+      "weekly": {
+        "weeks": 52,
+        "avg": 0.007654974977621595,
+        "median": 0.0,
+        "positive_rate": 0.25,
+        "weekend_ge_2_rate": 0.19230769230769232,
+        "hit_2_anytime_rate": 0.21153846153846154,
+        "active_weeks": 26,
+        "active_avg": 0.015543099914739037,
+        "active_positive_rate": 0.46153846153846156,
+        "active_ge_2_rate": 0.38461538461538464,
+        "worst": -0.03420264036349652,
+        "best": 0.10630703266282127
+      },
+      "avg_exposure": 0.20811853462617808
+    },
+    "min_wealth_ratio": 0.978515839456425,
+    "min_dd_reduction": 0.2825037616099386,
+    "min_cagr": 0.3605972721263664,
+    "min_active_week_avg": 0.0114054598850615
+  },
+  "final_result": {
+    "trades": 36,
+    "skipped": 26,
+    "skip_reasons": {
+      "correlation_gate": 15,
+      "max_positions": 11
+    },
+    "final_equity": 166776.58089405042,
+    "total_return": 0.6677658089405043,
+    "cagr": 0.5990290877791593,
+    "max_drawdown": -0.059472498119147454,
+    "dd_peak": "2025-05-05",
+    "dd_trough": "2025-05-28",
+    "avg_trade_return": 0.02974445000717589,
+    "positive_trade_rate": 0.5277777777777778,
+    "weekly": {
+      "weeks": 58,
+      "avg": 0.009177247675481778,
+      "median": 0.0,
+      "positive_rate": 0.43103448275862066,
+      "weekend_ge_2_rate": 0.25862068965517243,
+      "hit_2_anytime_rate": 0.29310344827586204,
+      "active_weeks": 41,
+      "active_avg": 0.012982447931169344,
+      "active_positive_rate": 0.6097560975609756,
+      "active_ge_2_rate": 0.36585365853658536,
+      "worst": -0.04557030000308515,
+      "best": 0.1023883329286408
+    },
+    "avg_exposure": 0.3585962487171399
+  },
+  "top20": [
+    {
+      "config": {
+        "lookback": 40,
+        "corr_threshold": 0.2,
+        "down_threshold": 0.25,
+        "gate_mode": "or",
+        "rank_mode": "quality"
+      },
+      "2023": {
+        "trades": 18,
+        "skipped": 11,
+        "skip_reasons": {
+          "correlation_gate": 8,
+          "max_positions": 3
+        },
+        "final_equity": 135801.8854405234,
+        "total_return": 0.35801885440523384,
+        "cagr": 0.3605972721263664,
+        "max_drawdown": -0.04308669143288557,
+        "dd_peak": "2023-08-22",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.035573975522922546,
+        "positive_trade_rate": 0.6111111111111112,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.005949615218638849,
+          "median": 0.0,
+          "positive_rate": 0.32075471698113206,
+          "weekend_ge_2_rate": 0.16981132075471697,
+          "hit_2_anytime_rate": 0.20754716981132076,
+          "active_weeks": 27,
+          "active_avg": 0.0114054598850615,
+          "active_positive_rate": 0.5925925925925926,
+          "active_ge_2_rate": 0.3333333333333333,
+          "worst": -0.023919711701230306,
+          "best": 0.05720349999999996
+        },
+        "avg_exposure": 0.2006128349041548
+      },
+      "2024": {
+        "trades": 22,
+        "skipped": 9,
+        "skip_reasons": {
+          "correlation_gate": 6,
+          "max_positions": 3
+        },
+        "final_equity": 145974.82889370667,
+        "total_return": 0.45974828893706676,
+        "cagr": 0.4616457100755542,
+        "max_drawdown": -0.08011330922812487,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03597514015794309,
+        "positive_trade_rate": 0.5454545454545454,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007654974977621595,
+          "median": 0.0,
+          "positive_rate": 0.25,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015543099914739037,
+          "active_positive_rate": 0.46153846153846156,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.20811853462617808
+      },
+      "min_wealth_ratio": 0.978515839456425,
+      "min_dd_reduction": 0.2825037616099386,
+      "min_cagr": 0.3605972721263664,
+      "min_active_week_avg": 0.0114054598850615
+    },
+    {
+      "config": {
+        "lookback": 40,
+        "corr_threshold": 0.35,
+        "down_threshold": 0.25,
+        "gate_mode": "or",
+        "rank_mode": "liquidity"
+      },
+      "2023": {
+        "trades": 20,
+        "skipped": 9,
+        "skip_reasons": {
+          "correlation_gate": 6,
+          "max_positions": 3
+        },
+        "final_equity": 142542.77418529382,
+        "total_return": 0.4254277418529382,
+        "cagr": 0.4285630494179651,
+        "max_drawdown": -0.044625365506411385,
+        "dd_peak": "2023-08-21",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.037087081745092884,
+        "positive_trade_rate": 0.65,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006877190984123362,
+          "median": 0.0,
+          "positive_rate": 0.33962264150943394,
+          "weekend_ge_2_rate": 0.20754716981132076,
+          "hit_2_anytime_rate": 0.24528301886792453,
+          "active_weeks": 27,
+          "active_avg": 0.013226256758049608,
+          "active_positive_rate": 0.6296296296296297,
+          "active_ge_2_rate": 0.4074074074074074,
+          "worst": -0.023919711701230195,
+          "best": 0.05501141881486582
+        },
+        "avg_exposure": 0.2087078395001075
+      },
+      "2024": {
+        "trades": 23,
+        "skipped": 8,
+        "skip_reasons": {
+          "correlation_gate": 6,
+          "max_positions": 2
+        },
+        "final_equity": 144665.2312498069,
+        "total_return": 0.446652312498069,
+        "cagr": 0.4484878835171435,
+        "max_drawdown": -0.08836597478710806,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03364147901448665,
+        "positive_trade_rate": 0.5652173913043478,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.007483275435980712,
+          "median": 0.0,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015199700831457271,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.034202640363496295,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.22272961581698672
+      },
+      "min_wealth_ratio": 0.989370563191845,
+      "min_dd_reduction": 0.2085927404286677,
+      "min_cagr": 0.4285630494179651,
+      "min_active_week_avg": 0.013226256758049608
+    },
+    {
+      "config": {
+        "lookback": 40,
+        "corr_threshold": 0.2,
+        "down_threshold": 0.25,
+        "gate_mode": "or",
+        "rank_mode": "liquidity"
+      },
+      "2023": {
+        "trades": 18,
+        "skipped": 11,
+        "skip_reasons": {
+          "correlation_gate": 9,
+          "max_positions": 2
+        },
+        "final_equity": 138198.32605995383,
+        "total_return": 0.38198326059953835,
+        "cagr": 0.3847573139244842,
+        "max_drawdown": -0.04462536550641161,
+        "dd_peak": "2023-08-21",
+        "dd_trough": "2023-09-03",
+        "avg_trade_return": 0.03761687034176987,
+        "positive_trade_rate": 0.6666666666666666,
+        "weekly": {
+          "weeks": 53,
+          "avg": 0.006282621806124631,
+          "median": 0.0,
+          "positive_rate": 0.33962264150943394,
+          "weekend_ge_2_rate": 0.16981132075471697,
+          "hit_2_anytime_rate": 0.22641509433962265,
+          "active_weeks": 27,
+          "active_avg": 0.012059139482718766,
+          "active_positive_rate": 0.6296296296296297,
+          "active_ge_2_rate": 0.3333333333333333,
+          "worst": -0.023919711701230195,
+          "best": 0.05720349999999996
+        },
+        "avg_exposure": 0.19646295480966666
+      },
+      "2024": {
+        "trades": 22,
+        "skipped": 9,
+        "skip_reasons": {
+          "correlation_gate": 7,
+          "max_positions": 2
+        },
+        "final_equity": 144302.40902590723,
+        "total_return": 0.4430240902590723,
+        "cagr": 0.4448425979903117,
+        "max_drawdown": -0.09065236441613533,
+        "dd_peak": "2024-07-28",
+        "dd_trough": "2024-10-02",
+        "avg_trade_return": 0.03494775070139319,
+        "positive_trade_rate": 0.5454545454545454,
+        "weekly": {
+          "weeks": 52,
+          "avg": 0.0074342894459789545,
+          "median": 0.0,
+          "positive_rate": 0.23076923076923078,
+          "weekend_ge_2_rate": 0.19230769230769232,
+          "hit_2_anytime_rate": 0.21153846153846154,
+          "active_weeks": 26,
+          "active_avg": 0.015101728851453756,
+          "active_positive_rate": 0.4230769230769231,
+          "active_ge_2_rate": 0.38461538461538464,
+          "worst": -0.03420264036349652,
+          "best": 0.10630703266282127
+        },
+        "avg_exposure": 0.20801245235368376
+      },
+      "min_wealth_ratio": 0.9868892093454722,
+      "min_dd_reduction": 0.1881157937873822,
+      "min_cagr": 0.3847573139244842,
+      "min_active_week_avg": 0.012059139482718766
+    }
+  ],
+  "final_gate_diagnostics": {
+    "blocked_correlation_entries": 15,
+    "gate_events": [
+      {
+        "date": "2025-02-20",
+        "candidate": "AREH",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": -0.08329783340008595,
+        "down_overlap": 0.3125
+      },
+      {
+        "date": "2025-02-23",
+        "candidate": "ACGC",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": 0.6144744560813131,
+        "down_overlap": 0.4166666666666667
+      },
+      {
+        "date": "2025-02-23",
+        "candidate": "MPCI",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": 0.15196036422806178,
+        "down_overlap": 0.3125
+      },
+      {
+        "date": "2025-02-24",
+        "candidate": "SKPC",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": 0.16729827656848573,
+        "down_overlap": 0.5384615384615384
+      },
+      {
+        "date": "2025-02-25",
+        "candidate": "EFID",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": 0.4457172970972607,
+        "down_overlap": 0.5454545454545454
+      },
+      {
+        "date": "2025-02-26",
+        "candidate": "SNFC",
+        "open_symbol": "ATLC",
+        "n": 40,
+        "corr": 0.04143398957885171,
+        "down_overlap": 0.25
+      },
+      {
+        "date": "2025-05-19",
+        "candidate": "SUGR",
+        "open_symbol": "HDBK",
+        "n": 40,
+        "corr": 0.4205794728191315,
+        "down_overlap": 0.42857142857142855
+      },
+      {
+        "date": "2025-05-21",
+        "candidate": "ETEL",
+        "open_symbol": "HDBK",
+        "n": 40,
+        "corr": 0.3202014236539039,
+        "down_overlap": 0.5
+      },
+      {
+        "date": "2025-06-02",
+        "candidate": "AJWA",
+        "open_symbol": "ECAP",
+        "n": 40,
+        "corr": 0.5273444130281146,
+        "down_overlap": 0.15384615384615385
+      },
+      {
+        "date": "2025-07-01",
+        "candidate": "AJWA",
+        "open_symbol": "AXPH",
+        "n": 40,
+        "corr": 0.1732144242748293,
+        "down_overlap": 0.25
+      },
+      {
+        "date": "2025-07-20",
+        "candidate": "NHPS",
+        "open_symbol": "ISPH",
+        "n": 40,
+        "corr": -0.008904063034241943,
+        "down_overlap": 0.25
+      },
+      {
+        "date": "2025-08-11",
+        "candidate": "NINH",
+        "open_symbol": "SNFC",
+        "n": 40,
+        "corr": 0.31930077239820404,
+        "down_overlap": 0.25
+      },
+      {
+        "date": "2025-09-14",
+        "candidate": "HELI",
+        "open_symbol": "IEEC",
+        "n": 40,
+        "corr": 0.23900908083176287,
+        "down_overlap": 0.4
+      },
+      {
+        "date": "2025-09-14",
+        "candidate": "POUL",
+        "open_symbol": "IEEC",
+        "n": 40,
+        "corr": 0.013705912207504441,
+        "down_overlap": 0.26666666666666666
+      },
+      {
+        "date": "2025-09-29",
+        "candidate": "EGCH",
+        "open_symbol": "ZMID",
+        "n": 40,
+        "corr": 0.21088594046394196,
+        "down_overlap": 0.25
+      }
+    ]
+  },
+  "comparison_final": {
+    "wealth_ratio": 0.9752673796669175,
+    "drawdown_reduction": 0.1392122040309416,
+    "return_change_pp": -4.22942665949817,
+    "dd_change_pp": 0.961827941934501,
+    "active_week_avg_change_pp": -0.06296483419000448,
+    "active_ge2_rate_change_pp": -0.6239364719228591
+  }
+}
