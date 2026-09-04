@@ -3,7 +3,7 @@ name: Temporary EGX Defensive Lift Backtest
 on:
   push:
     branches:
-      - tmp-egx-defensive-lift-v58-20260904
+      - tmp-egx-defensive-lift-v58-hazard-attribution-20260904
   workflow_dispatch:
 
 permissions:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout research branch
         uses: actions/checkout@v4
         with:
-          ref: tmp-egx-defensive-lift-v58-20260904
+          ref: tmp-egx-defensive-lift-v58-hazard-attribution-20260904
           fetch-depth: 1
 
       - name: Install research dependencies
@@ -31,18 +31,18 @@ jobs:
           git clone --depth 1 https://github.com/mohamedredasafan1/dataroom.git egxdata
           echo "CSV files: $(find egxdata/Dataset/raw -name '*.csv' | wc -l)"
 
-      - name: Run Defensive Lift v5.8 selective hazard gate research
-        run: python3 tmp/egx_backtest/backtest_v58_selective_hazard_gate.py
+      - name: Run v5.8 hazard attribution diagnostic
+        run: python3 tmp/egx_backtest/analyze_v58_hazard_attribution.py
 
-      - name: Commit v5.8 result
+      - name: Commit diagnostic result
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin tmp-egx-defensive-lift-v58-20260904
-          git add tmp/egx_backtest/results_v58_selective_hazard_gate.json
+          git pull --rebase origin tmp-egx-defensive-lift-v58-hazard-attribution-20260904
+          git add tmp/egx_backtest/results_v58_hazard_attribution.json
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Defensive Lift v5.8 selective hazard gate result"
-            git push origin HEAD:tmp-egx-defensive-lift-v58-20260904
+            git commit -m "v5.8 hazard attribution diagnostic result"
+            git push origin HEAD:tmp-egx-defensive-lift-v58-hazard-attribution-20260904
           fi
